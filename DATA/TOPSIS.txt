@@ -1,0 +1,52 @@
+				DATA KRITERIA					
+Nama Alternatif						Kriteria				
+					Harga					Kualitas					Waktu				Kredibiltas			Responsif
+Vendor A			0.06761					0.36554						0.34617				0.34856				0.36607
+Vendor B			0.51731					0.06460						0.03865				0.04918				0.04893
+Vendor C			0.06222					0.30887						0.36296				0.36962				0.36264
+Vendor D			0.21051					0.09177						0.10404				0.08381				0.07814
+Vendor E			0.14235					0.16922						0.14818				0.14883				0.14422
+Bobot				0.30					0.33						0.06				0.20				0.10
+Jenis				Cost					Benefit						Benefit				Benefit				Benefit
+pembagi				0.583634939785487		0.519856398253559			0.534650879520272	0.538242987494209	0.542968014467604
+
+
+			MATRIKS TERNOMALISASI -R-					
+Nama Alternatif						Kriteria				
+					Harga		Kualitas	Waktu		Kredibiltas		Responsif
+Vendor A			0.11584		0.70315		0.64748		0.64760			0.67421
+Vendor B			0.88636		0.12426		0.07229		0.09138			0.09011
+Vendor C			0.10661		0.59415		0.67888		0.68671			0.66788
+Vendor D			0.36068		0.17654		0.19459		0.15571			0.14392
+Vendor E			0.24391		0.32551		0.27715		0.27651			0.26562
+					
+		MATRIKS TERNOMALISASI TERBOBOT (Y)					
+Nama Alternatif						Kriteria				
+					Harga	Kualitas		Waktu		Kredibiltas		Responsif
+Vendor A			0.035255	0.234345	0.041905	0.130798		0.064503
+Vendor B			0.269768	0.041413	0.004679	0.018456		0.008621
+Vendor C			0.032448	0.198016	0.043937	0.138698		0.063897
+Vendor D			0.109776	0.058836	0.012594	0.031449		0.013769
+Vendor E			0.074235	0.108485	0.017937	0.055847		0.025412
+					
+				SOLUSI IDEAL POSITIF					
+					 Kriteria				
+	Harga		Kualitas	Waktu		Kredibiltas			Responsif
+A+	0.03245		0.23435		0.04394		0.13870				0.06450
+					
+				SOLUSI IDEAL NEGATIF					
+					 Kriteria				
+	Harga		Kualitas	Waktu		Kredibiltas			Responsif
+A-	0.26977		0.04141		0.00468		0.01846				0.00862
+					
+		JARAK JARAK IDEAL POSITIF (Si+), JARAK IDEAL NEGATIF (Si-), NILAI V					
+Nama Alternatif		Jarak Ideal Positif (Si+)	Jarak Ideal Negatif (Si-)	Nilai V	Rank	
+Vendor A				0.00863						0.33068	0.97458				1	
+Vendor B				0.33566						0.00000	0.00000				5	
+Vendor C				0.03633						0.31607	0.89690				2	
+Vendor D				0.22769						0.16174	0.41532				4	
+Vendor E				0.16326						0.21116	0.56396				3	
+					
+					
+KESIMPULAN					
+Dari Nilai V ini dapat dilihat bahwa Vendor A memiliki nilai terbesar yaitu 0,97458, sehingga dapat disimpulkan bahwa alternatif pertama yang akan dipilih. Dengan kata lain, Vendor A akan terpilih menjadi vendor interior terbaik.					

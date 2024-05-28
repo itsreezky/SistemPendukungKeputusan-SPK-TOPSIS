@@ -1,0 +1,238 @@
+No	Kode Kriteria			Nama Kriteria			Jenis	
+1	    C1			            Harga			    Cost			
+2	    C2			            Kualitas			Benefit			
+3	    C3			            Waktu			    Benefit			
+4	    C4			            Kredibiltas			Benefit			
+5	    C5			            Responsif			Benefit			
+
+MATRIKS PERBANDINGAN KRITERIA					
+					
+Harga	    Kualitas	Waktu	Kredibilitas	Responsif
+Harga	        1.00	1.00	5.00	1.00	5.00
+Kualitas	    1.00	1.00	3.00	3.00	4.00
+Waktu	        0.20	0.33	1.00	0.33	0.33
+Kredibilitas	1.00	0.33	3.00	1.00	3.00
+Responsif	    0.20	0.25	3.00	0.33	1.00
+
+MATRIKS PERBANDINGAN HARGA					
+					
+HARGA	    VENDOR A	VENDOR B	VENDOR C	VENDOR D	VENDOR E
+VENDOR A	    1.00	    0.20	    1.00	        0.33	0.33
+VENDOR B	    5.00	    1.00	    9.00	        5.00	3.00
+VENDOR C	    1.00	    0.11	    1.00	        0.33	0.50
+
+MATRIKS PERBANDINGAN KUALITAS					
+					
+KUALITAS	VENDOR A	VENDOR B	VENDOR C	VENDOR D	VENDOR E
+VENDOR A	1.00	        5.00	    1.00	    5.00	3.00
+VENDOR B	0.20	        1.00	    0.33	    0.33	0.33
+VENDOR C	1.00	        3.00	    1.00	    5.00	2.00
+VENDOR D	0.20	        3.00	    0.20	    1.00	0.33
+VENDOR E	0.33	        3.00	    0.50	    3.00	1.00
+Total	    2.73	        15.00	    3.03	    14.33	6.67
+
+MATRIKS PERBANDINGAN WAKTU					
+					
+WAKTU	    VENDOR A	VENDOR B	VENDOR C	VENDOR D	VENDOR E
+VENDOR A	1.00	    9.00	    1.00	    3.00	    3.00
+VENDOR B	0.11	    1.00	    0.14	    0.20	    0.33
+VENDOR C	1.00	    7.00	    1.00	    5.00	    3.00
+VENDOR D	0.33	    5.00	    0.20	    1.00	    0.33
+VENDOR E	0.33	    3.00	    0.33	    3.00	    1.00
+Total	    2.78	    25.00	    2.68	    12.20	    7.67
+
+MATRIKS PERBANDINGAN KREDIBILITAS					
+					
+KREDIBILITAS	VENDOR A	VENDOR B	VENDOR C	VENDOR D	VENDOR E
+VENDOR A	    1.00	        5.00	1.00	        5.00	3.00
+VENDOR B	    0.20	        1.00	0.14	        0.33	0.33
+VENDOR C	    1.00	        7.00	1.00	        5.00	3.00
+VENDOR D	    0.20	        3.00	0.20	        1.00	0.33
+VENDOR E	    0.33	        3.00	0.33	        3.00	1.00
+Total	        2.73	        19.00	2.68	        14.33	7.67
+
+MATRIKS PERBANDINGAN RESPONSIF					
+					
+RESPONSIF	VENDOR A	VENDOR B	VENDOR C	VENDOR D	VENDOR E
+VENDOR A	1.00	        5.00	    1.00	   7.00	    3.00
+VENDOR B	0.20	        1.00	    0.14	   0.33	    0.33
+VENDOR C	1.00	        7.00	    1.00	   5.00	    3.00
+VENDOR D	0.14	        3.00	    0.20	   1.00	    0.33
+VENDOR E	0.33	        3.00	    0.33	   3.00	    1.00
+Total	    2.68	        19.00	    2.68	   16.33	7.67
+
+HASIL MATRIKS SKOR ALTERNATIF					
+					
+	        Harga	    Kualitas	Waktu	    Kredibilitas	Responsif
+VENDOR A	0.06761	    0.36554	    0.34617 	0.34856	        0.36607
+VENDOR B	0.51731	    0.06460	    0.03865	    0.04918	        0.04893
+VENDOR C	0.06222	    0.30887	    0.36296	    0.36962	        0.36264
+VENDOR D	0.21051	    0.09177	    0.10404	    0.08381	        0.07814
+VENDOR E	0.14235	    0.16922	    0.14818 	0.14883	        0.14422
+Bobot (w)	0.304	    0.333	    0.065	    0.202	        0.096
+
+NORMALISASI KRITERIA								
+								
+	            Harga	Kualitas	Waktu	Kredibilitas	Responsif	Priority    Vector	Bobot	Eigen Value
+Harga	        0.29	0.34	    0.33	    0.18	    0.38	        1.52	    0.30	    1.03
+Kualitas	    0.29	0.34	    0.20	    0.53	    0.30	        1.67	    0.33	    0.97
+Waktu	        0.06	0.11	    0.07	    0.06    	0.03        	0.32	    0.06	    0.97
+Kredibilitas	0.29	0.11	    0.20	    0.18	    0.23	        1.01	    0.20	    1.14
+Responsif	    0.06	0.09	    0.20	    0.06	    0.08	        0.48	    0.10	    1.28
+Total							                                                        1.00	    5.40
+
+𝞴 maks	     5.40							
+CI	        0.10							
+RI	        1.12				
+CR	        0.09	        KONSISTEN				
+JIKA HASILNYA <= 0,1		KONSISTEN				
+JIKA HASILNYA >= 0,1		TIDAK KONSISTEN			
+					
+Bobot           Kriteria	
+Harga	            30%
+Kualitas	        33%
+Waktu	            6%
+Kredibilitas	    20%
+Responsif	        10%
+Total               100%
+
+
+NORMALISASI HARGA								
+								
+HARGA	    VENDOR A	VENDOR B	VENDOR C	VENDOR D	VENDOR E	Priority Vector	    Bobot	Eigen Value
+VENDOR A	    0.08	    0.11	    0.06	    0.05	    0.04	    0.34	        0.07	0.88
+VENDOR B	    0.38	    0.54	    0.56	    0.71	    0.38	    2.59	        0.52	0.95
+VENDOR C	    0.08	    0.06	    0.06	    0.05	    0.06	    0.31	        0.06	1.00
+VENDOR D	    0.23	    0.11	    0.19	    0.14	    0.38	    1.05	        0.21	1.47
+VENDOR E	    0.23	    0.18	    0.13	    0.05	    0.13	    0.71	        0.14	1.12
+Total							                                                            1.00	5.42
+
+𝞴 maks	   5.42							
+CI	      0.10							
+RI	      1.12					
+CR	      0.09	            KONSISTEN			
+JIKA HASILNYA <= 0,1		KONSISTEN			
+JIKA HASILNYA >= 0,1		TIDAK KONSISTEN			
+					
+Bobot Kriteria	
+VENDOR A	7%
+VENDOR B	52%
+VENDOR C	6%
+VENDOR D	21%
+VENDOR E	14%
+Total	    100%
+
+NORMALISASI KUALITAS								
+								
+KUALITAS	VENDOR A	VENDOR B	VENDOR C	VENDOR D	VENDOR E	Priority Vector	    Bobot	Eigen Value
+VENDOR A	0.37	        0.33	    0.33	    0.35	    0.45	    1.83	        0.37	1.00
+VENDOR B	0.07	        0.07	    0.11	    0.02	    0.05	    0.32	        0.06	0.97
+VENDOR C	0.37	        0.20	    0.33	    0.35	    0.30	    1.54	        0.31	0.94
+VENDOR D	0.07	        0.20	    0.07	    0.07	    0.05	    0.46	        0.09	1.32
+VENDOR E	0.12	        0.20	    0.16	    0.21	    0.15	    0.85	        0.17	1.13
+Total							                                                            1.00	5.35
+
+𝞴 maks	     5.35	
+CI	        0.09	
+RI	        1.12	
+CR	        0.08	        KONSISTEN
+JIKA HASILNYA <= 0,1		KONSISTEN
+JIKA HASILNYA >= 0,1		TIDAK KONSISTEN
+
+Bobot       Kriteria	
+VENDOR A	37%
+VENDOR B	6%
+VENDOR C	31%
+VENDOR D	9%
+VENDOR E	17%
+Total	    100%
+
+NORMALISASI WAKTU								
+								
+WAKTU	VENDOR A	VENDOR B	VENDOR C	VENDOR D	VENDOR E	Priority Vector	    Bobot	Eigen Value
+VENDOR A	0.36	    0.36	    0.37	    0.25	    0.39	    1.73	        0.35	0.96
+VENDOR B	0.04	    0.04	    0.05	    0.02	    0.04	    0.19	        0.04	0.97
+VENDOR C	0.36	    0.28	    0.37	    0.41	    0.39	    1.81	        0.36	0.97
+VENDOR D	0.12	    0.20	    0.07	    0.08	    0.04	    0.52	        0.10	1.27
+VENDOR E	0.12	    0.12	    0.12	    0.25	    0.13	    0.74	        0.15	1.14
+Total							                                                        1.00	5.30
+
+𝞴 maks	   5.30							
+CI	      0.08							
+RI	      1.12						
+CR	      0.07	            KONSISTEN				
+JIKA HASILNYA <= 0,1		KONSISTEN			
+JIKA HASILNYA >= 0,1		TIDAK KONSISTEN	
+				
+Bobot       Kriteria	
+VENDOR A	35%
+VENDOR B	4%
+VENDOR C	36%
+VENDOR D	10%
+VENDOR E	15%
+Total	    100%
+
+
+NORMALISASI KREDIBILITAS								
+								
+KREDIBILITAS	VENDOR A	VENDOR B	VENDOR C	VENDOR D	VENDOR E	Priority Vector	    Bobot	Eigen Value
+VENDOR A	        0.37	    0.26	    0.37	    0.35	    0.39	    1.74	        0.35	0.95
+VENDOR B	        0.07	    0.05	    0.05	    0.02	    0.04	    0.25	        0.05	0.93
+VENDOR C	        0.37	    0.37	    0.37	    0.35	    0.39	    1.85	        0.37	0.99
+VENDOR D	        0.07	    0.16	    0.07	    0.07	    0.04	    0.42	        0.08	1.20
+VENDOR E	        0.12	    0.16	    0.12	    0.21	    0.13	    0.74	        0.15	1.14
+Total							                                                                1.00	5.22
+
+𝞴 maks	    5.22	
+CI	       0.05	
+RI	       1.12	
+CR	       0.05	            KONSISTEN
+JIKA HASILNYA <= 0,1		KONSISTEN
+JIKA HASILNYA >= 0,1		TIDAK KONSISTEN
+
+Bobot       Kriteria	
+VENDOR A	35%
+VENDOR B	5%
+VENDOR C	37%
+VENDOR D	8%
+VENDOR E	15%
+Total	    100%
+
+NORMALISASI RESPONSIF								
+								
+RESPONSIF	VENDOR A	VENDOR B	VENDOR C	VENDOR D	VENDOR E	Priority Vector	    Bobot	Eigen Value
+VENDOR A	    0.37	    0.26    	0.37	    0.43	    0.39	    1.83	        0.37	0.98
+VENDOR B	    0.07	    0.05	    0.05	    0.02	    0.04	    0.24	        0.05	0.93
+VENDOR C	    0.37	    0.37	    0.37	    0.31	    0.39    	1.81	        0.36	0.97
+VENDOR D	    0.05	    0.16	    0.07	    0.06    	0.04    	0.39	        0.08	1.28
+VENDOR E	    0.12	    0.16	    0.12	    0.18    	0.13    	0.72	        0.14	1.11
+Total							                                                            1.00	5.26
+
+𝞴 maks	     5.26	
+CI	        0.07	
+RI	        1.12	
+CR	        0.06	        KONSISTEN
+JIKA HASILNYA <= 0,1		KONSISTEN
+JIKA HASILNYA >= 0,1		TIDAK KONSISTEN
+
+Bobot       Kriteria	
+VENDOR A	37%
+VENDOR B	5%
+VENDOR C	36%
+VENDOR D	8%
+VENDOR E	14%
+Total	    100%
+
+NILAI RANDOM INDEX	
+	
+UKURAN MATRIKS	RANDOM INDEX (RI)
+1	                    0
+2	                    0
+3	                    0.58
+4	                    0.9
+5	                    1.12
+6	                    1.24
+7	                    1.32
+8	                    1.41
+9	                    1.45
+10	                    1.49
