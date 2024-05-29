@@ -39,7 +39,7 @@
         <div class="sidebar-body">
             <ul class="sidebar-body-menu">
                 <li>
-                    <a class="active" href="/"><span class="icon home" aria-hidden="true"></span>Dashboard</a>
+                    <a class="active" href="/"><span class="icon home" aria-hidden="true"></span>Halaman Utama</a>
                 </li>
                 <li>
                     <a class="show-cat-btn" href="##">
@@ -61,42 +61,28 @@
                         </li>
                     </ul>
                 </li>
+
                 <li>
                     <a class="show-cat-btn" href="##">
-                        <span class="icon folder" aria-hidden="true"></span>Categories
+                        <span class="icon document" aria-hidden="true"></span>Normalisasi
                         <span class="category__btn transparent-btn" title="Open list">
-                            <span class="sr-only">Open list</span>
+                            <span class="sr-only">Lihat Data</span>
                             <span class="icon arrow-down" aria-hidden="true"></span>
                         </span>
                     </a>
                     <ul class="cat-sub-menu">
                         <li>
-                            <a href="categories.html">All categories</a>
+                        <a class="ajax-link" href="function/normalisasi">Lihat Hasil Normalisasi</a>
                         </li>
                     </ul>
                 </li>
+               
             </ul>
-            <span class="system-menu__title">system</span>
+            <span class="system-menu__title">Perhitungan</span>
             <ul class="sidebar-body-menu">
+                
                 <li>
-                    <a class="show-cat-btn" href="##">
-                        <span class="icon user-3" aria-hidden="true"></span>Users
-                        <span class="category__btn transparent-btn" title="Open list">
-                            <span class="sr-only">Open list</span>
-                            <span class="icon arrow-down" aria-hidden="true"></span>
-                        </span>
-                    </a>
-                    <ul class="cat-sub-menu">
-                        <li>
-                            <a href="users-01.html">Users-01</a>
-                        </li>
-                        <li>
-                            <a href="users-02.html">Users-02</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="##"><span class="icon setting" aria-hidden="true"></span>Settings</a>
+                    <a class="ajax-link" href="function/skalanilai"><i class="fa-solid fa-square-root-variable me-3"></i> Skala Nilai</a>
                 </li>
             </ul>
         </div>
