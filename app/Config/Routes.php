@@ -63,4 +63,8 @@ $routes->post('function/normalisasi/kredibilitas', 'NormalisasiController::norma
 $routes->post('function/normalisasi/responsif', 'NormalisasiController::normalisasiResponsif');
 $routes->post('function/normalisasi/waktu', 'NormalisasiController::normalisasiWaktu');
 
-$routes->get('function/skalanilai', 'SkalanilaiController::index');
+$routes->get('function/skala_nilaiKriteria', 'SkalaPerbandinganController::indexKriteria');
+$routes->post('function/skala_nilaiKriteria/hitungGeomeanKriteria', 'SkalaPerbandinganController::hitungGeomean');
+
+$routes->get('function/skala_nilaiHarga', 'SkalaPerbandinganController::indexHarga');
+$routes->post('function/skala_nilaiHarga/hitungGeomeanHarga', 'SkalaPerbandinganController::hitungGeomean');

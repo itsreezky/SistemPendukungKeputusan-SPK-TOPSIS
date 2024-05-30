@@ -16,14 +16,14 @@ class AlternatifController extends BaseController
     public function index()
     {
         
-        $data['alternatif'] = $this->AlternatifModel->findAll();
+        $data['Alternatif'] = $this->AlternatifModel->findAll();
         return view('function/alternatif', $data);
     }
 
     public function save()
     {
         $this->AlternatifModel->save([
-            'Nama_Alternatif' => $this->request->getVar('Nama_Alternatif'),
+            'nama_alternatif' => $this->request->getVar('nama_alternatif'),
         ]);
 
         return $this->response->setJSON(['message' => 'Data Alternatif berhasil ditambahkan']);
@@ -33,7 +33,7 @@ class AlternatifController extends BaseController
     {
         $this->AlternatifModel->save([
             'id' => $this->request->getVar('id'),
-            'Nama_Alternatif' => $this->request->getVar('Nama_Alternatif'),
+            'nama_alternatif' => $this->request->getVar('nama_alternatif'),
         ]);
 
         return $this->response->setJSON(['message' => 'Data Alternatif berhasil diubah']);

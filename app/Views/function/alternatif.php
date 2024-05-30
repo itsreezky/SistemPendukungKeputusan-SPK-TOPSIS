@@ -10,20 +10,22 @@
                   </tr>
                 </thead>
                 <tbody id="alternatifTable">
-                  <?php foreach($alternatif as $a): ?>
-                  <tr>
-                    <td><?= $a['id']; ?></td>
-                    <td>
-      
-                     <?= $a['Nama_Alternatif']; ?>
-                      
-                    </td>
-                    <td>
-                        <button class="btn btn-warning btnEdit" data-id="<?= $a['id']; ?>">Edit</button>
-                        <button class="btn btn-danger btnDelete" data-id="<?= $a['id']; ?>">Hapus</button>
-                    </td>
-                  </tr>
-                  <?php endforeach; ?>
+                <?php if (empty($Alternatif)): ?>
+                <tr>
+                    <td colspan="10">Data kosong. Silakan tambah alternatif data terlebih dahulu.</td>
+                </tr>
+            <?php else: ?>
+                <?php foreach ($Alternatif as $data) : ?>
+                    <tr>
+                        <td><?= $data['id']; ?></td>
+                        <td><?= $data['nama_alternatif']; ?></td>
+                        <td>
+                            <button class="btn btn-warning btnEdit" data-id="<?= $data['id']; ?>">Edit</button>
+                            <button class="btn btn-danger btnDelete" data-id="<?= $data['id']; ?>">Hapus</button>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            <?php endif; ?>
                 </tbody>
               </table>
             </div>
@@ -40,7 +42,7 @@
                     <input type="hidden" id="id" name="id">
                     <div class="mb-3">
                         <label for="Nama_Alternatif" class="form-label">Nama Alternatif</label>
-                        <input type="text" class="form-control" id="Nama_Alternatif" name="Nama_Alternatif" required>
+                        <input type="text" class="form-control" id="nama_alternatif" name="nama_alternatif" required>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -91,7 +93,7 @@ $(document).ready(function() {
         let id = $(this).data('id');
         $.get('<?= base_url('function/alternatif'); ?>/' + id, function(data) {
             $('#id').val(data.id);
-            $('#Nama_Alternatif').val(data.Nama_Alternatif);
+            $('#nama_alternatif').val(data.nama_alternatif);
             $('#modalAlternatif').modal('show');
         });
     });
@@ -116,7 +118,9 @@ $(document).ready(function() {
                         showConfirmButton: false,
                         timer: 2000
                     });
-                    loadAlternatif();
+                    loadKriteria();
+                    $('#id').val('');
+                    $('#formKriteria')[0].reset();
 
                 }).fail(function(jqXHR, textStatus, errorThrown) {
                     Swal.fire({

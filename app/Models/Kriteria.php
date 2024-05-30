@@ -6,13 +6,13 @@ use CodeIgniter\Model;
 
 class Kriteria extends Model
 {
-    protected $table            = 'kriteria';
+    protected $table            = 'Kriteria';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['Kode_Kriteria', 'Nama_Kriteria', 'Jenis'];
+    protected $allowedFields    = ['kode_kriteria', 'nama_kriteria', 'jenis', 'bobot'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;

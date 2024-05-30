@@ -12,7 +12,12 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/css/style.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
- </head>
+  <style>
+        .locked {
+            pointer-events: none;
+        }
+    </style> 
+</head>
 
 <body>
   <div class="layer"></div>
@@ -64,7 +69,7 @@
 
                 <li>
                     <a class="show-cat-btn" href="##">
-                        <span class="icon document" aria-hidden="true"></span>Normalisasi
+                        <span class="icon document" aria-hidden="true"></span>Normalisasi Data
                         <span class="category__btn transparent-btn" title="Open list">
                             <span class="sr-only">Lihat Data</span>
                             <span class="icon arrow-down" aria-hidden="true"></span>
@@ -80,10 +85,26 @@
             </ul>
             <span class="system-menu__title">Perhitungan</span>
             <ul class="sidebar-body-menu">
-                
                 <li>
-                    <a class="ajax-link" href="function/skalanilai"><i class="fa-solid fa-square-root-variable me-3"></i> Skala Nilai</a>
+                    <a class="show-cat-btn" href="##">
+                    <i class="fa-solid fa-square-root-variable me-3"></i>
+
+                        </span>Skala Penilaian
+                        <span class="category__btn transparent-btn" title="Open list">
+                            <span class="sr-only">Lihat Data</span>
+                            <span class="icon arrow-down" aria-hidden="true"></span>
+                        </span>
+                    </a>
+                    <ul class="cat-sub-menu">
+                    <li>
+                    <a class="ajax-link" href="function/skala_nilaiKriteria"> Skala Nilai Kriteria </a>
+                    </li>
+                    <li>
+                    <a class="ajax-link" href="function/skala_nilaiHarga"> Skala Nilai Harga </a>
+                    </li>
+                    </ul>
                 </li>
+
             </ul>
         </div>
     </div>

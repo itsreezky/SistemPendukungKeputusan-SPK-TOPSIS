@@ -6,13 +6,13 @@ use CodeIgniter\Model;
 
 class Alternatif extends Model
 {
-    protected $table            = 'alternatif';
+    protected $table            = 'Alternatif';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['Nama_Alternatif'];
+    protected $allowedFields    = ['nama_alternatif'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;

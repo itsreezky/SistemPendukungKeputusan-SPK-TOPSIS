@@ -8,26 +8,30 @@
                     <th>Kode Kriteria</th>
                     <th>Nama Kriteria</th>
                     <th>Jenis</th>
+                    <th>Bobot</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody id="kriteriaTable">
-                  <?php foreach($kriteria as $k): ?>
-                  <tr>
-                    <td><?= $k['id']; ?></td>
-                    <td>
-      
-                     <?= $k['Kode_Kriteria']; ?>
-                      
-                    </td>
-                    <td><?= $k['Nama_Kriteria']; ?></td>
-                    <td><?= $k['Jenis']; ?></td>
-                    <td>
-                        <button class="btn btn-warning btnEdit" data-id="<?= $k['id']; ?>">Edit</button>
-                        <button class="btn btn-danger btnDelete" data-id="<?= $k['id']; ?>">Hapus</button>
-                    </td>
-                  </tr>
-                  <?php endforeach; ?>
+                <?php if (empty($Kriteria)): ?>
+                <tr>
+                    <td colspan="10">Data kosong. Silakan tambah kriteria data terlebih dahulu.</td>
+                </tr>
+            <?php else: ?>
+                <?php foreach ($Kriteria as $data) : ?>
+                    <tr>
+                        <td><?= $data['id']; ?></td>
+                        <td><?= $data['kode_kriteria']; ?></td>
+                        <td><?= $data['nama_kriteria']; ?></td>
+                        <td><?= $data['jenis']; ?></td>
+                        <td><?= $data['bobot']; ?></td>
+                        <td>
+                            <button class="btn btn-warning btnEdit" data-id="<?= $data['id']; ?>">Edit</button>
+                            <button class="btn btn-danger btnDelete" data-id="<?= $data['id']; ?>">Hapus</button>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            <?php endif; ?>
                 </tbody>
               </table>
             </div>
@@ -44,17 +48,16 @@
                     <input type="hidden" id="id" name="id">
                     <div class="mb-3">
                         <label for="Kode_Kriteria" class="form-label">Kode Kriteria</label>
-                        <input type="text" class="form-control" id="Kode_Kriteria" name="Kode_Kriteria" required>
+                        <input type="text" class="form-control" id="kode_kriteria" name="kode_kriteria" required>
                     </div>
                     <div class="mb-3">
                         <label for="Nama_Kriteria" class="form-label">Nama Kriteria</label>
-                        <input type="text" class="form-control" id="Nama_Kriteria" name="Nama_Kriteria" required>
+                        <input type="text" class="form-control" id="nama_kriteria" name="nama_kriteria" required>
                     </div>
                     <div class="mb-3">
                         <label for="jenis" class="form-label">Jenis</label>
-                        <select class="form-select" id="Jenis" name="Jenis" required>
-                        <option selected>Pilih Jenis Kriteria</option>
-                        <option value="Cost">Cost</option>
+                        <select class="form-select" id="jenis" name="jenis" required>
+                        <option selected="Cost">Cost</option>
                         <option value="Benefit">Benefit</option>
                     </select>
                     </div>
@@ -89,8 +92,8 @@ $(document).ready(function() {
                     timer: 2000
                 });
                 loadKriteria();
-                $('#id').val('');
-                $('#formKriteria')[0].reset();
+                    $('#id').val('');
+                    $('#formKriteria')[0].reset();
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 Swal.fire({
@@ -108,9 +111,10 @@ $(document).ready(function() {
         let id = $(this).data('id');
         $.get('<?= base_url('function/kriteria'); ?>/' + id, function(data) {
             $('#id').val(data.id);
-            $('#Kode_Kriteria').val(data.Kode_Kriteria);
-            $('#Nama_Kriteria').val(data.Nama_Kriteria);
-            $('#Jenis').val(data.Jenis);
+            $('#kode_kriteria').val(data.kode_kriteria);
+            $('#nama_kriteria').val(data.nama_kriteria);
+            $('#jenis').val(data.jenis);
+            $('#bobot').val(data.bobot);
             $('#modalKriteria').modal('show');
         });
     });
@@ -136,6 +140,8 @@ $(document).ready(function() {
                         timer: 2000
                     });
                     loadKriteria();
+                    $('#id').val('');
+                    $('#formKriteria')[0].reset();
                 }).fail(function(jqXHR, textStatus, errorThrown) {
                     Swal.fire({
                         icon: 'error',

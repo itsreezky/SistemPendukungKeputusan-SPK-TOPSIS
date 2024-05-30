@@ -16,16 +16,17 @@ class KriteriaController extends BaseController
     public function index()
     {
         
-        $data['kriteria'] = $this->kriteriaModel->findAll();
+        $data['Kriteria'] = $this->kriteriaModel->findAll();
         return view('function/kriteria', $data);
     }
 
     public function save()
     {
         $this->kriteriaModel->save([
-            'Kode_Kriteria' => $this->request->getVar('Kode_Kriteria'),
-            'Nama_Kriteria' => $this->request->getVar('Nama_Kriteria'),
-            'Jenis' => $this->request->getVar('Jenis'),
+            'kode_kriteria' => $this->request->getVar('kode_kriteria'),
+            'nama_kriteria' => $this->request->getVar('nama_kriteria'),
+            'jenis' => $this->request->getVar('jenis'),
+            'bobot' => '-',
         ]);
 
         return $this->response->setJSON(['message' => 'Data Kriteria berhasil ditambahkan']);
@@ -35,9 +36,10 @@ class KriteriaController extends BaseController
     {
         $this->kriteriaModel->save([
             'id' => $this->request->getVar('id'),
-            'Kode_Kriteria' => $this->request->getVar('Kode_Kriteria'),
-            'Nama_Kriteria' => $this->request->getVar('Nama_Kriteria'),
-            'Jenis' => $this->request->getVar('Jenis'),
+            'kode_kriteria' => $this->request->getVar('kode_kriteria'),
+            'nama_kriteria' => $this->request->getVar('nama_kriteria'),
+            'jenis' => $this->request->getVar('jenis'),
+            'bobot' => '-',
         ]);
 
         return $this->response->setJSON(['message' => 'Data Kriteria berhasil diubah']);

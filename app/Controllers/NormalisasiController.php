@@ -66,6 +66,7 @@ class NormalisasiController extends BaseController
         } else {
             return $this->response->setJSON(['message' => 'Tidak ada data untuk dinormalisasi'], 400);
         }
+        
     }
     // Normalisasi Waktu
     public function normalisasiWaktu()
