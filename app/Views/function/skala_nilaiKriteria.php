@@ -156,21 +156,19 @@ $(document).ready(function() {
 
 
 $('#save-kriteria').click(function() {
-    var data = {};
+    var data = [];
+    var criteriaCount = <?= count($kriteria) ?>;
 
-    $('tbody tr').each(function() {
-        $(this).find('.scale-checkbox:checked').each(function() {
-            var nameParts = $(this).attr('name').split('-');
-            var criteria1 = nameParts[1] - 1; // Convert to zero-indexed
-            var criteria2 = nameParts[2] - 1; // Convert to zero-indexed
-            var weight = parseFloat($(this).data('weight'));
-
-            if (!data[criteria1]) {
-                data[criteria1] = {};
-            }
-            data[criteria1][criteria2] = weight;
-        });
-    });
+    for (var i = 0; i < criteriaCount; i++) {
+        var row = [];
+        for (var j = i + 1; j < criteriaCount; j++) {
+            var weight = $('input[name="scale-' + (i + 1) + '-' + (j + 1) + '"]:checked').data('weight');
+            row.push(weight);
+        }
+        if (row.length > 0) {
+            data.push(row);
+        }
+    }
 
     console.log('Data to save:', data);
 
@@ -190,8 +188,6 @@ $('#save-kriteria').click(function() {
         }
     });
 });
-
-
 
     $('#delete-kriteria').click(function() {
         $.ajax({

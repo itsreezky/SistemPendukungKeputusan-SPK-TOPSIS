@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class Alternatif extends Model
 {
-    protected $table            = 'Alternatif';
+    protected $table            = 'alternatif';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
