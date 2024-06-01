@@ -8,7 +8,6 @@
                     <th>Kode Kriteria</th>
                     <th>Nama Kriteria</th>
                     <th>Jenis</th>
-                    <th>Bobot</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>
@@ -24,7 +23,6 @@
                         <td><?= $data['kode_kriteria']; ?></td>
                         <td><?= $data['nama_kriteria']; ?></td>
                         <td><?= $data['jenis']; ?></td>
-                        <td><?= $data['bobot']; ?></td>
                         <td>
                             <button class="btn btn-warning btnEdit" data-id="<?= $data['id']; ?>">Edit</button>
                             <button class="btn btn-danger btnDelete" data-id="<?= $data['id']; ?>">Hapus</button>
@@ -114,7 +112,6 @@ $(document).ready(function() {
             $('#kode_kriteria').val(data.kode_kriteria);
             $('#nama_kriteria').val(data.nama_kriteria);
             $('#jenis').val(data.jenis);
-            $('#bobot').val(data.bobot);
             $('#modalKriteria').modal('show');
         });
     });

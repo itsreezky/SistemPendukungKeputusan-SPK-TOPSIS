@@ -63,7 +63,7 @@ class NormalisasiKriteria extends Model
 
             // Save normalized data
             $this->insert([
-                'kriteria' => $kriteria['id'],
+                'kriteria' => $kriteria['kode_kriteria'],
                 'harga' => $harga_norm,
                 'kualitas' => $kualitas_norm,
                 'waktu' => $waktu_norm,

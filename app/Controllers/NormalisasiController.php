@@ -21,6 +21,7 @@ class NormalisasiController extends BaseController
             return $this->response->setJSON(['message' => 'Data Kriteria berhasil dinormalisasi']);
         } else {
             return $this->response->setJSON(['message' => 'Tidak ada data untuk dinormalisasi'], 400);
+            
         }
     }
     // Normalisasi Kualitas

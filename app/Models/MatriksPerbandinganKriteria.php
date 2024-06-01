@@ -12,7 +12,7 @@ class MatriksPerbandinganKriteria extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['harga', 'kualitas', 'waktu', 'kredibilitas', 'responsif','total'];
+    protected $allowedFields    = ['harga', 'kualitas', 'waktu', 'kredibilitas', 'responsif'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;

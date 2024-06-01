@@ -12,7 +12,7 @@ class Kriteria extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['kode_kriteria', 'nama_kriteria', 'jenis', 'bobot'];
+    protected $allowedFields    = ['kode_kriteria', 'nama_kriteria', 'jenis'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
