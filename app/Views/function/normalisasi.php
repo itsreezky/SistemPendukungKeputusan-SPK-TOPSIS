@@ -41,6 +41,20 @@
             <?php endif; ?>
         </tbody>
     </table>
+    <center>
+    <div class="card col-12 mt-4 mb-4">
+  <div class="card-header">
+    HASIL PERHITUNGAN
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">𝞴 maks = <?= $k['lambda_max']; ?> </li>
+    <li class="list-group-item">CI = <?= $k['ci']; ?> </li>
+    <li class="list-group-item">RI = <?= $k['ri']; ?> </li>
+    <li class="list-group-item">CR = <?= $k['cr']; ?> </li>
+    <li class="list-group-item text-success"><?= $k['consistency']; ?> <i class="fa-regular fa-circle-check"></i></li>
+  </ul>
+</div>
+</center>
 </div>
 
 <h4> Matriks Kualitas Normalisasi </h4>
@@ -84,6 +98,20 @@
                 <?php endif; ?>
             </tbody>
         </table>
+        <center>
+    <div class="card col-12 mt-4 mb-4">
+  <div class="card-header">
+    HASIL PERHITUNGAN
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">𝞴 maks = <?= $kl['lambda_max']; ?> </li>
+    <li class="list-group-item">CI = <?= $kl['ci']; ?> </li>
+    <li class="list-group-item">RI = <?= $kl['ri']; ?> </li>
+    <li class="list-group-item">CR = <?= $kl['cr']; ?> </li>
+    <li class="list-group-item text-success"><?= $kl['consistency']; ?> <i class="fa-regular fa-circle-check"></i></li>
+  </ul>
+</div>
+</center>
 </div>
 
 <h4> Matriks Harga Normalisasi </h4>
@@ -126,6 +154,20 @@
             <?php endif; ?>
         </tbody>
     </table>
+    <center>
+    <div class="card col-12 mt-4 mb-4">
+  <div class="card-header">
+    HASIL PERHITUNGAN
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">𝞴 maks = <?= $h['lambda_max']; ?> </li>
+    <li class="list-group-item">CI = <?= $h['ci']; ?> </li>
+    <li class="list-group-item">RI = <?= $h['ri']; ?> </li>
+    <li class="list-group-item">CR = <?= $h['cr']; ?> </li>
+    <li class="list-group-item text-success"><?= $h['consistency']; ?> <i class="fa-regular fa-circle-check"></i></li>
+  </ul>
+</div>
+</center>
 </div>
 
 <h4> Matriks Kredibilitas Normalisasi </h4>
@@ -168,6 +210,20 @@
             <?php endif; ?>
         </tbody>
     </table>
+    <center>
+    <div class="card col-12 mt-4 mb-4">
+  <div class="card-header">
+    HASIL PERHITUNGAN
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">𝞴 maks = <?= $kr['lambda_max']; ?> </li>
+    <li class="list-group-item">CI = <?= $kr['ci']; ?> </li>
+    <li class="list-group-item">RI = <?= $kr['ri']; ?> </li>
+    <li class="list-group-item">CR = <?= $kr['cr']; ?> </li>
+    <li class="list-group-item text-success"><?= $kr['consistency']; ?> <i class="fa-regular fa-circle-check"></i></li>
+  </ul>
+</div>
+</center>
 </div>
 
 <h4> Matriks Responsif Normalisasi </h4>
@@ -210,6 +266,20 @@
             <?php endif; ?>
         </tbody>
     </table>
+    <center>
+    <div class="card col-12 mt-4 mb-4">
+  <div class="card-header">
+    HASIL PERHITUNGAN
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">𝞴 maks = <?= $r['lambda_max']; ?> </li>
+    <li class="list-group-item">CI = <?= $r['ci']; ?> </li>
+    <li class="list-group-item">RI = <?= $r['ri']; ?> </li>
+    <li class="list-group-item">CR = <?= $r['cr']; ?> </li>
+    <li class="list-group-item text-success"><?= $r['consistency']; ?> <i class="fa-regular fa-circle-check"></i></li>
+  </ul>
+</div>
+</center>
 </div>
 
 <h4> Matriks Waktu Normalisasi </h4>
@@ -252,4 +322,18 @@
             <?php endif; ?>
         </tbody>
     </table>
+    <center>
+    <div class="card col-12 mt-4 mb-4">
+  <div class="card-header">
+    HASIL PERHITUNGAN
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">𝞴 maks = <?= $w['lambda_max']; ?> </li>
+    <li class="list-group-item">CI = <?= $w['ci']; ?> </li>
+    <li class="list-group-item">RI = <?= $w['ri']; ?> </li>
+    <li class="list-group-item">CR = <?= $w['cr']; ?> </li>
+    <li class="list-group-item text-success"><?= $w['consistency']; ?> <i class="fa-regular fa-circle-check"></i></li>
+  </ul>
+</div>
+</center>
 </div>

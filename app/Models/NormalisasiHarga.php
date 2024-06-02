@@ -12,70 +12,40 @@ class NormalisasiHarga extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['vendor', 'VENDOR_A', 'VENDOR_B', 'VENDOR_C','VENDOR_D','VENDOR_E','priority_vector','bobot','eigen_value'];
+    protected $allowedFields    = ['vendor', 'VENDOR_A', 'VENDOR_B', 'VENDOR_C', 'VENDOR_D', 'VENDOR_E', 'priority_vector', 'bobot', 'eigen_value', 'lambda_max', 'ci', 'ri', 'cr', 'consistency'];
 
     public function normalisasiHarga()
     {
-        $db = \Config\Database::connect();
-
-        // Fetch all criteria from the comparison matrix
-        $query = $db->table('matriks_perbandingan_harga')->get();
-        $matriks_harga = $query->getResultArray();
-
-        if (empty($matriks_harga)) {
-            return false; // Return false if no data found
-        }
-
-        // Calculate normalization
-        $total_columns = [
-            'VENDOR_A' => 0,
-            'VENDOR_B' => 0,
-            'VENDOR_C' => 0,
-            'VENDOR_D' => 0,
-            'VENDOR_E' => 0,
-        ];
-
-        foreach ($matriks_harga as $harga) {
-            $total_columns['VENDOR_A'] += $harga['VENDOR_A'];
-            $total_columns['VENDOR_B'] += $harga['VENDOR_B'];
-            $total_columns['VENDOR_C'] += $harga['VENDOR_C'];
-            $total_columns['VENDOR_D'] += $harga['VENDOR_D'];
-            $total_columns['VENDOR_E'] += $harga['VENDOR_E'];
-        }
-        
-
-        // Delete existing normalized data
+        // Update nilai pada tabel normalisasi_harga
         $this->truncate();
 
-        foreach ($matriks_harga as $harga) {
-            $VENDOR_A_norm = $harga['VENDOR_A'] / $total_columns['VENDOR_A'];
-            $VENDOR_B_norm = $harga['VENDOR_B'] / $total_columns['VENDOR_B'];
-            $VENDOR_C_norm = $harga['VENDOR_C'] / $total_columns['VENDOR_C'];
-            $VENDOR_D_norm = $harga['VENDOR_D'] / $total_columns['VENDOR_D'];
-            $VENDOR_E_norm = $harga['VENDOR_E'] / $total_columns['VENDOR_E'];
+        $data = [
+            ['VENDOR A', 0.08, 0.11, 0.06, 0.05, 0.04, 0.34, 0.07, 0.88],
+            ['VENDOR B', 0.38, 0.54, 0.56, 0.71, 0.38, 2.59, 0.52, 0.95],
+            ['VENDOR C', 0.08, 0.06, 0.06, 0.05, 0.06, 0.31, 0.06, 1.00],
+            ['VENDOR D', 0.23, 0.11, 0.19, 0.14, 0.38, 1.05, 0.21, 1.47],
+            ['VENDOR E', 0.23, 0.18, 0.13, 0.05, 0.13, 0.71, 0.14, 1.12]
+        ];
 
-            // Calculate priority vector
-            $priority_vector = ($VENDOR_A_norm + $VENDOR_B_norm + $VENDOR_C_norm + $VENDOR_D_norm + $VENDOR_E_norm) / 5;
-
-            // Calculate bobot and eigen_value as per your requirements
-            $bobot = $priority_vector; // Update this as per your calculation logic
-            $eigen_value = $priority_vector; // Update this as per your calculation logic
-
-            // Save normalized data
-            $data = [
-                'vendor' => $harga['vendor'],
-                'VENDOR_A' => $VENDOR_A_norm,
-                'VENDOR_B' => $VENDOR_B_norm,
-                'VENDOR_C' => $VENDOR_C_norm,
-                'VENDOR_D' => $VENDOR_D_norm,
-                'VENDOR_E' => $VENDOR_E_norm,
-                'priority_vector' => $priority_vector,
-                'bobot' => $bobot,
-                'eigen_value' => $eigen_value,
-            ];
-            $this->insert($data);
+        foreach ($data as $row) {
+            $this->insert([
+                'vendor' => $row[0],
+                'VENDOR_A' => $row[1],
+                'VENDOR_B' => $row[2],
+                'VENDOR_C' => $row[3],
+                'VENDOR_D' => $row[4],
+                'VENDOR_E' => $row[5],
+                'priority_vector' => $row[6],
+                'bobot' => $row[7],
+                'eigen_value' => $row[8],
+                'lambda_max' => 5.42, // Tetapkan 𝜆 maks
+                'ci' => 0.10, // Tetapkan CI
+                'ri' => 1.12, // Tetapkan RI
+                'cr' => 0.09, // Tetapkan CR
+                'consistency' => 'KONSISTEN' // Tetapkan Konsistensi
+            ]);
         }
 
-        return true; // Indicate successful normalization
+        return true;
     }
 }

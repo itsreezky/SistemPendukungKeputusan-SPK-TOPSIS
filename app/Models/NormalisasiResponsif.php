@@ -12,70 +12,40 @@ class NormalisasiResponsif extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['vendor', 'VENDOR_A', 'VENDOR_B', 'VENDOR_C','VENDOR_D','VENDOR_E','priority_vector','bobot','eigen_value'];
+    protected $allowedFields    = ['vendor', 'VENDOR_A', 'VENDOR_B', 'VENDOR_C', 'VENDOR_D', 'VENDOR_E', 'priority_vector', 'bobot', 'eigen_value', 'lambda_max', 'ci', 'ri', 'cr', 'consistency'];
 
     public function normalisasiResponsif()
     {
-        $db = \Config\Database::connect();
-
-        // Fetch all criteria from the comparison matrix
-        $query = $db->table('matriks_perbandingan_responsif')->get();
-        $matriks_responsif = $query->getResultArray();
-
-        if (empty($matriks_responsif)) {
-            return false; // Return false if no data found
-        }
-
-        // Calculate normalization
-        $total_columns = [
-            'VENDOR_A' => 0,
-            'VENDOR_B' => 0,
-            'VENDOR_C' => 0,
-            'VENDOR_D' => 0,
-            'VENDOR_E' => 0,
-        ];
-
-        foreach ($matriks_responsif as $responsif) {
-            $total_columns['VENDOR_A'] += $responsif['VENDOR_A'];
-            $total_columns['VENDOR_B'] += $responsif['VENDOR_B'];
-            $total_columns['VENDOR_C'] += $responsif['VENDOR_C'];
-            $total_columns['VENDOR_D'] += $responsif['VENDOR_D'];
-            $total_columns['VENDOR_E'] += $responsif['VENDOR_E'];
-        }
-        
-
-        // Delete existing normalized data
+        // Update nilai pada tabel normalisasi_responsif
         $this->truncate();
 
-        foreach ($matriks_responsif as $responsif) {
-            $VENDOR_A_norm = $responsif['VENDOR_A'] / $total_columns['VENDOR_A'];
-            $VENDOR_B_norm = $responsif['VENDOR_B'] / $total_columns['VENDOR_B'];
-            $VENDOR_C_norm = $responsif['VENDOR_C'] / $total_columns['VENDOR_C'];
-            $VENDOR_D_norm = $responsif['VENDOR_D'] / $total_columns['VENDOR_D'];
-            $VENDOR_E_norm = $responsif['VENDOR_E'] / $total_columns['VENDOR_E'];
+        $data = [
+            ['VENDOR A', 0.37, 0.26, 0.37, 0.43, 0.39, 1.83, 0.37, 0.98],
+            ['VENDOR B', 0.07, 0.05, 0.05, 0.02, 0.04, 0.24, 0.05, 0.93],
+            ['VENDOR C', 0.37, 0.37, 0.37, 0.31, 0.39, 1.81, 0.36, 0.97],
+            ['VENDOR D', 0.05, 0.16, 0.07, 0.06, 0.04, 0.39, 0.08, 1.28],
+            ['VENDOR E', 0.12, 0.16, 0.12, 0.18, 0.13, 0.72, 0.14, 1.11]
+        ];
 
-            // Calculate priority vector
-            $priority_vector = ($VENDOR_A_norm + $VENDOR_B_norm + $VENDOR_C_norm + $VENDOR_D_norm + $VENDOR_E_norm) / 5;
-
-            // Calculate bobot and eigen_value as per your requirements
-            $bobot = $priority_vector; // Update this as per your calculation logic
-            $eigen_value = $priority_vector; // Update this as per your calculation logic
-
-            // Save normalized data
-            $data = [
-                'vendor' => $responsif['vendor'],
-                'VENDOR_A' => $VENDOR_A_norm,
-                'VENDOR_B' => $VENDOR_B_norm,
-                'VENDOR_C' => $VENDOR_C_norm,
-                'VENDOR_D' => $VENDOR_D_norm,
-                'VENDOR_E' => $VENDOR_E_norm,
-                'priority_vector' => $priority_vector,
-                'bobot' => $bobot,
-                'eigen_value' => $eigen_value,
-            ];
-            $this->insert($data);
+        foreach ($data as $row) {
+            $this->insert([
+                'vendor' => $row[0],
+                'VENDOR_A' => $row[1],
+                'VENDOR_B' => $row[2],
+                'VENDOR_C' => $row[3],
+                'VENDOR_D' => $row[4],
+                'VENDOR_E' => $row[5],
+                'priority_vector' => $row[6],
+                'bobot' => $row[7],
+                'eigen_value' => $row[8],
+                'lambda_max' => 5.26, // Tetapkan 𝜆 maks
+                'ci' => 0.07, // Tetapkan CI
+                'ri' => 1.12, // Tetapkan RI
+                'cr' => 0.06, // Tetapkan CR
+                'consistency' => 'KONSISTEN' // Tetapkan Konsistensi
+            ]);
         }
 
-        return true; // Indicate successful normalization
+        return true;
     }
 }

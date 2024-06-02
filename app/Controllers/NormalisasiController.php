@@ -51,7 +51,7 @@ class NormalisasiController extends BaseController
     {
         $model = new NormalisasiKredibilitas();
 
-        if ($model->normalisasiKredibilitias()) {
+        if ($model->normalisasiKredibilitas()) {
             return $this->response->setJSON(['message' => 'Data Kredibilitas berhasil dinormalisasi']);
         } else {
             return $this->response->setJSON(['message' => 'Tidak ada data untuk dinormalisasi'], 400);

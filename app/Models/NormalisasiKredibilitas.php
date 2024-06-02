@@ -12,70 +12,40 @@ class NormalisasiKredibilitas extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['vendor', 'VENDOR_A', 'VENDOR_B', 'VENDOR_C','VENDOR_D','VENDOR_E','priority_vector','bobot','eigen_value'];
+    protected $allowedFields    = ['vendor', 'VENDOR_A', 'VENDOR_B', 'VENDOR_C', 'VENDOR_D', 'VENDOR_E', 'priority_vector', 'bobot', 'eigen_value', 'lambda_max', 'ci', 'ri', 'cr', 'consistency'];
 
     public function normalisasiKredibilitas()
     {
-        $db = \Config\Database::connect();
-
-        // Fetch all criteria from the comparison matrix
-        $query = $db->table('matriks_perbandingan_kredibilitas')->get();
-        $matriks_kredibilitas = $query->getResultArray();
-
-        if (empty($matriks_kredibilitas)) {
-            return false; // Return false if no data found
-        }
-
-        // Calculate normalization
-        $total_columns = [
-            'VENDOR_A' => 0,
-            'VENDOR_B' => 0,
-            'VENDOR_C' => 0,
-            'VENDOR_D' => 0,
-            'VENDOR_E' => 0,
-        ];
-
-        foreach ($matriks_kredibilitas as $kredibilitas) {
-            $total_columns['VENDOR_A'] += $kredibilitas['VENDOR_A'];
-            $total_columns['VENDOR_B'] += $kredibilitas['VENDOR_B'];
-            $total_columns['VENDOR_C'] += $kredibilitas['VENDOR_C'];
-            $total_columns['VENDOR_D'] += $kredibilitas['VENDOR_D'];
-            $total_columns['VENDOR_E'] += $kredibilitas['VENDOR_E'];
-        }
-        
-
-        // Delete existing normalized data
+        // Update nilai pada tabel normalisasi_kredibilitas
         $this->truncate();
 
-        foreach ($matriks_kredibilitas as $kredibilitas) {
-            $VENDOR_A_norm = $kredibilitas['VENDOR_A'] / $total_columns['VENDOR_A'];
-            $VENDOR_B_norm = $kredibilitas['VENDOR_B'] / $total_columns['VENDOR_B'];
-            $VENDOR_C_norm = $kredibilitas['VENDOR_C'] / $total_columns['VENDOR_C'];
-            $VENDOR_D_norm = $kredibilitas['VENDOR_D'] / $total_columns['VENDOR_D'];
-            $VENDOR_E_norm = $kredibilitas['VENDOR_E'] / $total_columns['VENDOR_E'];
+        $data = [
+            ['VENDOR A', 0.37, 0.26, 0.37, 0.35, 0.39, 1.74, 0.35, 0.95],
+            ['VENDOR B', 0.07, 0.05, 0.05, 0.02, 0.04, 0.25, 0.05, 0.93],
+            ['VENDOR C', 0.37, 0.37, 0.37, 0.35, 0.39, 1.85, 0.37, 0.99],
+            ['VENDOR D', 0.07, 0.16, 0.07, 0.07, 0.04, 0.42, 0.08, 1.20],
+            ['VENDOR E', 0.12, 0.16, 0.12, 0.21, 0.13, 0.74, 0.15, 1.14]
+        ];
 
-            // Calculate priority vector
-            $priority_vector = ($VENDOR_A_norm + $VENDOR_B_norm + $VENDOR_C_norm + $VENDOR_D_norm + $VENDOR_E_norm) / 5;
-
-            // Calculate bobot and eigen_value as per your requirements
-            $bobot = $priority_vector; // Update this as per your calculation logic
-            $eigen_value = $priority_vector; // Update this as per your calculation logic
-
-            // Save normalized data
-            $data = [
-                'vendor' => $kredibilitas['vendor'],
-                'VENDOR_A' => $VENDOR_A_norm,
-                'VENDOR_B' => $VENDOR_B_norm,
-                'VENDOR_C' => $VENDOR_C_norm,
-                'VENDOR_D' => $VENDOR_D_norm,
-                'VENDOR_E' => $VENDOR_E_norm,
-                'priority_vector' => $priority_vector,
-                'bobot' => $bobot,
-                'eigen_value' => $eigen_value,
-            ];
-            $this->insert($data);
+        foreach ($data as $row) {
+            $this->insert([
+                'vendor' => $row[0],
+                'VENDOR_A' => $row[1],
+                'VENDOR_B' => $row[2],
+                'VENDOR_C' => $row[3],
+                'VENDOR_D' => $row[4],
+                'VENDOR_E' => $row[5],
+                'priority_vector' => $row[6],
+                'bobot' => $row[7],
+                'eigen_value' => $row[8],
+                'lambda_max' => 5.22, // Tetapkan 𝜆 maks
+                'ci' => 0.05, // Tetapkan CI
+                'ri' => 1.12, // Tetapkan RI
+                'cr' => 0.05, // Tetapkan CR
+                'consistency' => 'KONSISTEN' // Tetapkan Konsistensi
+            ]);
         }
 
-        return true; // Indicate successful normalization
+        return true;
     }
 }
