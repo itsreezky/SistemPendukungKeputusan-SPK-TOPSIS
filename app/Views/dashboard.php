@@ -122,6 +122,21 @@
                     </li>
                     </ul>
                 </li>
+                <li>
+                    <a class="show-cat-btn" href="##">
+                    <i class="fa-solid fa-square-root-variable me-3"></i>
+
+                        </span>Nilai Alternatif
+                        <span class="category__btn transparent-btn" title="Open list">
+                            <span class="sr-only">Lihat Data</span>
+                            <span class="icon arrow-down" aria-hidden="true"></span>
+                        </span>
+                    </a>
+                    <ul class="cat-sub-menu">
+                    <li>
+                    <a class="ajax-link" href="function/skor_alternatif"> Hitung Nilai Alternatif </a>
+                    </li>
+                    <li>
 
             </ul>
         </div>

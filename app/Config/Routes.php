@@ -107,3 +107,6 @@ $routes->post('function/skala_nilaiResponsif/simpanDataResponsif', 'SkalaPerband
 $routes->post('function/skala_nilaiResponsif/hapusDataResponsif', 'SkalaPerbandinganController::hapusDataResponsif');
 $routes->get('function/skala_nilaiResponsif/getSavedData', 'SkalaPerbandinganController::getSavedDataResponsif');
 
+// Skor Alternatif
+$routes->get('function/skor_alternatif', 'SkorAlternatifController::index');
+$routes->post('function/skor_alternatif/hitungSkor', 'SkorAlternatifController::hitungSkor');

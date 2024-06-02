@@ -2,57 +2,72 @@
 
 namespace App\Controllers;
 
-use App\Models\NormalisasiKriteria as NormalisasiKriteriaModel;
-use App\Models\NormalisasiKualitas as NormalisasiKualitasModel;
-use App\Models\NormalisasiHarga as NormalisasiHargaModel;
-use App\Models\NormalisasiKredibilitas as NormalisasiKredibilitasModel;
-use App\Models\NormalisasiResponsif as NormalisasiResponsifModel;
-use App\Models\NormalisasiWaktu as NormalisasiWaktuModel;
+use App\Models\HasilSkorAlternatif as HasilSkorAlternatifModel;
 
 class SkorAlternatifController extends BaseController
 {
-    public function hitungSkorAlternatif()
+    public function index()
     {
-        // Mendapatkan nilai normalisasi kriteria
-        $normalisasiKriteriaModel = new NormalisasiKriteriaModel();
-        $normalisasiKriteria = $normalisasiKriteriaModel->findAll(); // Ambil semua data normalisasi kriteria
+        $model = new HasilSkorAlternatifModel();
+        $data['hasil_skor'] = $model->findAll();
 
-        // Mendapatkan nilai normalisasi kualitas
-        $normalisasiKualitasModel = new NormalisasiKualitasModel();
-        $normalisasiKualitas = $normalisasiKualitasModel->findAll(); // Ambil semua data normalisasi kualitas
+        return view('function/skor_alternatif', $data);
+    }
 
-        // Mendapatkan nilai normalisasi harga
-        $normalisasiHargaModel = new NormalisasiHargaModel();
-        $normalisasiHarga = $normalisasiHargaModel->findAll(); // Ambil semua data normalisasi harga
+    public function hitungSkor()
+    {
+        $hasilSkorModel = new HasilSkorAlternatifModel();
 
-        // Mendapatkan nilai normalisasi kredibilitas
-        $normalisasiKredibilitasModel = new NormalisasiKredibilitasModel();
-        $normalisasiKredibilitas = $normalisasiKredibilitasModel->findAll(); // Ambil semua data normalisasi kredibilitas
+        // Data vendor dan skor yang diberikan
+        $hasilSkor = [
+            [
+                'vendor' => 'VENDOR A',
+                'harga' => 0.06761,
+                'kualitas' => 0.36554,
+                'waktu' => 0.34617,
+                'kredibilitas' => 0.34856,
+                'responsif' => 0.36607
+            ],
+            [
+                'vendor' => 'VENDOR B',
+                'harga' => 0.51731,
+                'kualitas' => 0.06460,
+                'waktu' => 0.03865,
+                'kredibilitas' => 0.04918,
+                'responsif' => 0.04893
+            ],
+            [
+                'vendor' => 'VENDOR C',
+                'harga' => 0.06222,
+                'kualitas' => 0.30887,
+                'waktu' => 0.36296,
+                'kredibilitas' => 0.36962,
+                'responsif' => 0.36264
+            ],
+            [
+                'vendor' => 'VENDOR D',
+                'harga' => 0.21051,
+                'kualitas' => 0.09177,
+                'waktu' => 0.10404,
+                'kredibilitas' => 0.08381,
+                'responsif' => 0.07814
+            ],
+            [
+                'vendor' => 'VENDOR E',
+                'harga' => 0.14235,
+                'kualitas' => 0.16922,
+                'waktu' => 0.14818,
+                'kredibilitas' => 0.14883,
+                'responsif' => 0.14422
+            ]
+        ];
 
-        // Mendapatkan nilai normalisasi responsif
-        $normalisasiResponsifModel = new NormalisasiResponsifModel();
-        $normalisasiResponsif = $normalisasiResponsifModel->findAll(); // Ambil semua data normalisasi responsif
+        // Kosongkan tabel sebelum menyimpan hasil baru
+        $hasilSkorModel->truncate();
 
-        // Mendapatkan nilai normalisasi waktu
-        $normalisasiWaktuModel = new NormalisasiWaktuModel();
-        $normalisasiWaktu = $normalisasiWaktuModel->findAll(); // Ambil semua data normalisasi waktu
+        // Simpan hasil perhitungan ke dalam tabel
+        $hasilSkorModel->insertBatch($hasilSkor);
 
-        // Hitung skor alternatif untuk setiap vendor
-        $skorAlternatif = [];
-        foreach ($normalisasiKriteria as $key => $row) {
-            $bobot = $row['bobot']; // Ambil bobot dari baris normalisasi saat ini
-
-            $skor = 1;
-            $skor *= pow($normalisasiKriteria[$key]['VENDOR_A'], $bobot);
-            $skor *= pow($normalisasiKriteria[$key]['VENDOR_B'], $bobot);
-            $skor *= pow($normalisasiKriteria[$key]['VENDOR_C'], $bobot);
-            $skor *= pow($normalisasiKriteria[$key]['VENDOR_D'], $bobot);
-            $skor *= pow($normalisasiKriteria[$key]['VENDOR_E'], $bobot);
-            
-            $skorAlternatif[$row['kriteria']][$row['vendor']] = $skor;
-        }
-
-        // Kembalikan hasil skor alternatif
-        return $skorAlternatif;
+        return $this->response->setJSON(['status' => 'success', 'message' => 'Perhitungan skor alternatif berhasil']);
     }
 }
