@@ -284,45 +284,6 @@
               </div>
             </article>
           </div>
-
-          <!-- <div class="col-md-6 col-xl-3">
-            <article class="stat-cards-item">
-              <div class="stat-cards-icon success">
-                <i data-feather="feather" aria-hidden="true"></i>
-              </div>
-              <div class="stat-cards-info">
-                <p class="stat-cards-info__num">1478 286</p>
-                <p class="stat-cards-info__title">Total visits</p>
-                <p class="stat-cards-info__progress">
-                  <span class="stat-cards-info__profit warning">
-                    <i data-feather="trending-up" aria-hidden="true"></i>0.00%
-                  </span>
-                  Last month
-                </p>
-              </div>
-            </article>
-          </div>
-
-          <div class="col-md-6 col-xl-3">
-            <article class="stat-cards-item">
-              <div class="stat-cards-icon purple">
-                <i data-feather="file" aria-hidden="true"></i>
-              </div>
-              <div class="stat-cards-info">
-                <p class="stat-cards-info__num">1478 286</p>
-                <p class="stat-cards-info__title">Total visits</p>
-                <p class="stat-cards-info__progress">
-                  <span class="stat-cards-info__profit danger">
-                    <i data-feather="trending-down" aria-hidden="true"></i>1.64%
-                  </span>
-
-
-                </p>
-              </div>
-            </article>
-          </div> -->
-
-
         </div>
         <div class="row">   
 
@@ -333,55 +294,31 @@
           </div>
 
           <div class="col-lg-3">
-            <article class="customers-wrapper">
-              <canvas id="customersChart" aria-label="Customers statistics" role="img"></canvas>
-            </article>
-            <article class="white-block">
-              <div class="top-cat-title">
-                <h3>Top Ranking Vendors</h3>
-                <p>5 Kriteria, 5 Vendor</p>
-              </div>
-              <ul class="top-cat-list">
+    <article class="customers-wrapper">
+        <canvas id="customersChart" aria-label="Customers statistics" role="img"></canvas>
+    </article>
+    <article class="white-block">
+        <div class="top-cat-title">
+            <h3>Top Ranking Vendors</h3>
+            <p>5 Kriteria, 5 Vendor</p>
+        </div>
+        <ul class="top-cat-list">
+            <?php foreach ($topsis_results as $result) : ?>
                 <li>
-                  <a href="##">
-                    <div class="top-cat-list__title">
-                      Vendor A <span>#1</span>
-                    </div>
-                   
-                  </a>
+                    <a href="#">
+                        <div class="top-cat-list__title">
+                            <?= $result['vendor'] ?> <span>#<?= $result['rank'] ?></span>
+                        </div>
+                    </a>
                 </li>
-                <li>
-                  <a href="##">
-                    <div class="top-cat-list__title">
-                      Vendor B <span>#2</span>
-                    </div>
-                   
-                  </a>
-                </li> <li>
-                  <a href="##">
-                    <div class="top-cat-list__title">
-                      Vendor C <span>#3</span>
-                    </div>
-                   
-                  </a>
-                </li> <li>
-                  <a href="##">
-                    <div class="top-cat-list__title">
-                      Vendor D <span>#4</span>
-                    </div>
-                   
-                  </a>
-                </li> <li>
-                  <a href="##">
-                    <div class="top-cat-list__title">
-                      Vendor E <span>#5</span>
-                    </div>
-                   
-                  </a>
-                </li>
-              </ul>
-            </article>
-          </div>
+            <?php endforeach; ?>
+        </ul>
+        <?php if (isset($topsis_message)) : ?>
+            <p><?= $topsis_message ?></p>
+        <?php endif; ?>
+    </article>
+</div>
+
 
         </div>
       </div>

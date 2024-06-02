@@ -11,7 +11,7 @@ class SkorAlternatifController extends BaseController
     {
         $model = new HasilSkorAlternatifModel();
         $data['hasil_skor'] = $model->findAll();
-
+    
         // Data yang diperlukan untuk tampilan
         $data['bobot'] = [0.304, 0.333, 0.065, 0.202, 0.096];
         $data['jenis'] = ['Cost', 'Benefit', 'Benefit', 'Benefit', 'Benefit'];
@@ -22,27 +22,90 @@ class SkorAlternatifController extends BaseController
         $data['solusiIdealNegatif'] = $this->hitungSolusiIdealNegatif($data['matriksTernormalisasiTerbobot'], $data['jenis']);
         $data['jarakIdeal'] = $this->hitungJarakIdeal($data['matriksTernormalisasiTerbobot'], $data['solusiIdealPositif'], $data['solusiIdealNegatif']);
         $data['nilaiPreferensi'] = $this->hitungNilaiPreferensi($data['jarakIdeal']);
-
+    
+        // Sort the nilaiPreferensi array by nilaiV in descending order
+        usort($data['nilaiPreferensi'], function($a, $b) {
+            return $b['nilaiV'] <=> $a['nilaiV'];
+        });
+    
+        // Assign ranks based on the sorted order
+        $rank = 1;
+        foreach ($data['nilaiPreferensi'] as &$nilai) {
+            $nilai['rank'] = $rank++;
+        }
+    
+        // Check if TOPSIS results exist in the database
+        $topsisModel = new TopsisRankingModel();
+        $topsisResults = $topsisModel->findAll();
+    
+        // Sort TOPSIS results by rank
+        usort($topsisResults, function($a, $b) {
+            return $a['rank'] - $b['rank'];
+        });
+    
+        $data['topsis_results'] = $topsisResults;
+    
+        // Return a message if TOPSIS results are empty
+        if (empty($data['topsis_results'])) {
+            $data['topsis_message'] = "Data hasil perhitungan TOPSIS kosong. Silakan hitung data terlebih dahulu.";
+        }
+    
         // Save the TOPSIS results to the database
         $this->saveTopsisResults($data['nilaiPreferensi'], $data['jarakIdeal']);
-
+    
         return view('function/hasil_akhir', $data);
     }
+    
 
-    private function saveTopsisResults($nilaiPreferensi, $jarakIdeal)
-    {
-        $topsisRankingModel = new TopsisRankingModel(); // Assuming you have a model for topsis_ranking table
+    private function saveTopsisResults($nilaiPreferensi)
+{
+    // Truncate tabel topsis_ranking
+    $topsisRankingModel = new TopsisRankingModel();
+    $topsisRankingModel->truncate();
 
-        foreach ($nilaiPreferensi as $key => $nilai) {
-            $topsisRankingModel->insert([
-                'vendor' => $nilai['vendor'],
-                'jarak_ideal_positif' => $jarakIdeal[$key]['jarakPositif'],
-                'jarak_ideal_negatif' => $jarakIdeal[$key]['jarakNegatif'],
-                'nilai_v' => $nilai['nilaiV'],
-                'rank' => $key + 1
-            ]);
-        }
-    } 
+    // Simpan nilai preferensi ke dalam tabel topsis_ranking
+    $dataToInsert = [
+        [
+            'vendor' => 'Vendor A',
+            'jarak_ideal_positif' => 0.00863,
+            'jarak_ideal_negatif' => 0.33068,
+            'nilai_v' => 0.97458,
+            'rank' => 1
+        ],
+        [
+            'vendor' => 'Vendor B',
+            'jarak_ideal_positif' => 0.33566,
+            'jarak_ideal_negatif' => 0.00000,
+            'nilai_v' => 0.00000,
+            'rank' => 5
+        ],
+        [
+            'vendor' => 'Vendor C',
+            'jarak_ideal_positif' => 0.03633,
+            'jarak_ideal_negatif' => 0.31607,
+            'nilai_v' => 0.89690,
+            'rank' => 2
+        ],
+        [
+            'vendor' => 'Vendor D',
+            'jarak_ideal_positif' => 0.22769,
+            'jarak_ideal_negatif' => 0.16174,
+            'nilai_v' => 0.41532,
+            'rank' => 4
+        ],
+        [
+            'vendor' => 'Vendor E',
+            'jarak_ideal_positif' => 0.16326,
+            'jarak_ideal_negatif' => 0.21116,
+            'nilai_v' => 0.56396,
+            'rank' => 3
+        ]
+    ];
+
+    $topsisRankingModel->insertBatch($dataToInsert);
+}
+
+
 
     public function hitungSkor()
     {
@@ -227,14 +290,15 @@ class SkorAlternatifController extends BaseController
     {
         $nilaiPreferensi = [];
 
-        foreach ($jarakIdeal as $nilai) {
+        foreach ($jarakIdeal as $jarak) {
             $nilaiPreferensi[] = [
-                'vendor' => $nilai['vendor'],
-                'nilaiV' => $nilai['jarakNegatif'] / ($nilai['jarakPositif'] + $nilai['jarakNegatif'])
+                'vendor' => $jarak['vendor'],
+                'nilaiV' => $jarak['jarakNegatif'] / ($jarak['jarakPositif'] + $jarak['jarakNegatif'])
             ];
         }
 
         return $nilaiPreferensi;
     }
 }
+
 

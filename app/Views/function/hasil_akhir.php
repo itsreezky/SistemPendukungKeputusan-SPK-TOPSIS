@@ -55,18 +55,20 @@
             </tr>
         </thead>
         <tbody id="hasil-topsis-body">
-            <?php foreach ($nilaiPreferensi as $key => $nilai) : ?>
-                <tr>
-                    <td><?= $nilai['vendor']; ?></td>
-                    <td><?= $jarakIdeal[$key]['jarakPositif']; ?></td>
-                    <td><?= $jarakIdeal[$key]['jarakNegatif']; ?></td>
-                    <td><?= $nilai['nilaiV']; ?></td>
-                    <td><?= $key + 1; ?></td>
-                </tr>
-            <?php endforeach; ?>
-        </tbody>
+    <?php foreach ($topsis_results as $result) : ?>
+        <tr>
+            <td><?= $result['vendor']; ?></td>
+            <td><?= $result['jarak_ideal_positif']; ?></td>
+            <td><?= $result['jarak_ideal_negatif']; ?></td>
+            <td><?= $result['nilai_v']; ?></td>
+            <td><?= $result['rank']; ?></td>
+        </tr>
+    <?php endforeach; ?>
+</tbody>
+
     </table>
 </div>
+
 
 <script>
     $(document).ready(function() {
