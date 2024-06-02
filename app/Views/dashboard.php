@@ -126,7 +126,7 @@
                     <a class="show-cat-btn" href="##">
                     <i class="fa-solid fa-square-root-variable me-3"></i>
 
-                        </span>Nilai Alternatif
+                        </span>Skor Akhir
                         <span class="category__btn transparent-btn" title="Open list">
                             <span class="sr-only">Lihat Data</span>
                             <span class="icon arrow-down" aria-hidden="true"></span>
@@ -134,7 +134,7 @@
                     </a>
                     <ul class="cat-sub-menu">
                     <li>
-                    <a class="ajax-link" href="function/skor_alternatif"> Hitung Nilai Alternatif </a>
+                    <a class="ajax-link" href="function/hasil_akhir"> Hitung Skor Akhir </a>
                     </li>
                     <li>
 
