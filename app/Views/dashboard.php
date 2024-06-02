@@ -46,38 +46,44 @@
                 <li>
                     <a class="active" href="/"><span class="icon home" aria-hidden="true"></span>Halaman Utama</a>
                 </li>
+                <span class="system-menu__title">Perpustakaan Data</span>
                 <li>
                     <a class="show-cat-btn" href="##">
-                        <span class="icon document" aria-hidden="true"></span>Master Data
+                        <span class="icon document" aria-hidden="true"></span>Data Master
                         <span class="category__btn transparent-btn" title="Open list">
                             <span class="sr-only">Lihat Data</span>
                             <span class="icon arrow-down" aria-hidden="true"></span>
                         </span>
                     </a>
                     <ul class="cat-sub-menu">
-                        <li>
-                        <a class="ajax-link" href="function/kriteria">DATA KRITERIA</a>
-                        </li>
-                        <li>
-                        <a class="ajax-link" href="function/alternatif">DATA ALTERNATIF</a>
-                        </li>
-                        <li>
-                        <a class="ajax-link" href="function/matriks">DATA MATRIKS</a>
-                        </li>
-                    </ul>
+                <li>
+                    <a class="ajax-link" href="function/kriteria">
+                        Data Kriteria
+                    </a>
                 </li>
-
+                        <li>
+                        <a class="ajax-link" href="function/alternatif">
+                       Data Alternatif
+                        </a>
+                        </li>
+                </li>
+            </ul>
                 <li>
                     <a class="show-cat-btn" href="##">
-                        <span class="icon document" aria-hidden="true"></span>Normalisasi Data
+                        <span class="icon document" aria-hidden="true"></span>Hasil Data
                         <span class="category__btn transparent-btn" title="Open list">
                             <span class="sr-only">Lihat Data</span>
                             <span class="icon arrow-down" aria-hidden="true"></span>
                         </span>
                     </a>
                     <ul class="cat-sub-menu">
+                    <li>
+                        <a class="ajax-link" href="function/matriks">
+                       Hasil Data Matriks
+                      </a>
+                        </li>
                         <li>
-                        <a class="ajax-link" href="function/normalisasi">Lihat Hasil Normalisasi</a>
+                        <a class="ajax-link" href="function/normalisasi">Hasil Data Normalisasi</a>
                         </li>
                     </ul>
                 </li>
@@ -100,7 +106,19 @@
                     <a class="ajax-link" href="function/skala_nilaiKriteria"> Skala Nilai Kriteria </a>
                     </li>
                     <li>
+                    <a class="ajax-link" href="function/skala_nilaiKualitas"> Skala Nilai Kualitas </a>
+                    </li>
+                    <li>
                     <a class="ajax-link" href="function/skala_nilaiHarga"> Skala Nilai Harga </a>
+                    </li>
+                    <li>
+                    <a class="ajax-link" href="function/skala_nilaiWaktu"> Skala Nilai Waktu </a>
+                    </li>
+                    <li>
+                    <a class="ajax-link" href="function/skala_nilaiKredibilitas"> Skala Nilai Kredibilitas </a>
+                    </li>
+                    <li>
+                    <a class="ajax-link" href="function/skala_nilaiResponsif"> Skala Nilai Responsif </a>
                     </li>
                     </ul>
                 </li>

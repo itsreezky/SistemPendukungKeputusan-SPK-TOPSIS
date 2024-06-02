@@ -40,6 +40,7 @@ class MatriksPerbandinganController extends BaseController
     public function saveKriteria()
     {
         $this->kriteria->save([
+            'nama_kriteria' => $this->request->getVar('nama_kriteria'),
             'harga' => $this->request->getVar('harga'),
             'kualitas' => $this->request->getVar('kualitas'),
             'waktu' => $this->request->getVar('waktu'),
@@ -54,11 +55,11 @@ class MatriksPerbandinganController extends BaseController
     {
         $this->kualitas->save([
             'vendor' => $this->request->getVar('vendor'),
-            'alternatif1' => $this->request->getVar('alternatif1'),
-            'alternatif2' => $this->request->getVar('alternatif2'),
-            'alternatif3' => $this->request->getVar('alternatif3'),
-            'alternatif4' => $this->request->getVar('alternatif4'),
-            'alternatif5' => $this->request->getVar('alternatif5'),
+            'VENDOR_A' => $this->request->getVar('VENDOR_A'),
+            'VENDOR_B' => $this->request->getVar('VENDOR_B'),
+            'VENDOR_C' => $this->request->getVar('VENDOR_C'),
+            'VENDOR_D' => $this->request->getVar('VENDOR_D'),
+            'VENDOR_E' => $this->request->getVar('VENDOR_E'),
         ]);
         return $this->response->setJSON(['message' => 'Data berhasil ditambahkan']);
     }
@@ -67,11 +68,11 @@ class MatriksPerbandinganController extends BaseController
     {
         $this->harga->save([
             'vendor' => $this->request->getVar('vendor'),
-            'alternatif1' => $this->request->getVar('alternatif1'),
-            'alternatif2' => $this->request->getVar('alternatif2'),
-            'alternatif3' => $this->request->getVar('alternatif3'),
-            'alternatif4' => $this->request->getVar('alternatif4'),
-            'alternatif5' => $this->request->getVar('alternatif5'),
+            'VENDOR_A' => $this->request->getVar('VENDOR_A'),
+            'VENDOR_B' => $this->request->getVar('VENDOR_B'),
+            'VENDOR_C' => $this->request->getVar('VENDOR_C'),
+            'VENDOR_D' => $this->request->getVar('VENDOR_D'),
+            'VENDOR_E' => $this->request->getVar('VENDOR_E'),
         ]);
         return $this->response->setJSON(['message' => 'Data berhasil ditambahkan']);
     }
@@ -80,11 +81,11 @@ class MatriksPerbandinganController extends BaseController
     {
         $this->kredibilitas->save([
             'vendor' => $this->request->getVar('vendor'),
-            'alternatif1' => $this->request->getVar('alternatif1'),
-            'alternatif2' => $this->request->getVar('alternatif2'),
-            'alternatif3' => $this->request->getVar('alternatif3'),
-            'alternatif4' => $this->request->getVar('alternatif4'),
-            'alternatif5' => $this->request->getVar('alternatif5'),
+            'VENDOR_A' => $this->request->getVar('VENDOR_A'),
+            'VENDOR_B' => $this->request->getVar('VENDOR_B'),
+            'VENDOR_C' => $this->request->getVar('VENDOR_C'),
+            'VENDOR_D' => $this->request->getVar('VENDOR_D'),
+            'VENDOR_E' => $this->request->getVar('VENDOR_E'),
         ]);
         return $this->response->setJSON(['message' => 'Data berhasil ditambahkan']);
     }
@@ -93,11 +94,11 @@ class MatriksPerbandinganController extends BaseController
     {
         $this->waktu->save([
             'vendor' => $this->request->getVar('vendor'),
-            'alternatif1' => $this->request->getVar('alternatif1'),
-            'alternatif2' => $this->request->getVar('alternatif2'),
-            'alternatif3' => $this->request->getVar('alternatif3'),
-            'alternatif4' => $this->request->getVar('alternatif4'),
-            'alternatif5' => $this->request->getVar('alternatif5'),
+            'VENDOR_A' => $this->request->getVar('VENDOR_A'),
+            'VENDOR_B' => $this->request->getVar('VENDOR_B'),
+            'VENDOR_C' => $this->request->getVar('VENDOR_C'),
+            'VENDOR_D' => $this->request->getVar('VENDOR_D'),
+            'VENDOR_E' => $this->request->getVar('VENDOR_E'),
         ]);
         return $this->response->setJSON(['message' => 'Data berhasil ditambahkan']);
     }
@@ -106,11 +107,11 @@ class MatriksPerbandinganController extends BaseController
     {
         $this->responsif->save([
             'vendor' => $this->request->getVar('vendor'),
-            'alternatif1' => $this->request->getVar('alternatif1'),
-            'alternatif2' => $this->request->getVar('alternatif2'),
-            'alternatif3' => $this->request->getVar('alternatif3'),
-            'alternatif4' => $this->request->getVar('alternatif4'),
-            'alternatif5' => $this->request->getVar('alternatif5'),
+            'VENDOR_A' => $this->request->getVar('VENDOR_A'),
+            'VENDOR_B' => $this->request->getVar('VENDOR_B'),
+            'VENDOR_C' => $this->request->getVar('VENDOR_C'),
+            'VENDOR_D' => $this->request->getVar('VENDOR_D'),
+            'VENDOR_E' => $this->request->getVar('VENDOR_E'),
         ]);
         return $this->response->setJSON(['message' => 'Data berhasil ditambahkan']);
     }
@@ -133,11 +134,11 @@ class MatriksPerbandinganController extends BaseController
         $this->kualitas->save([
             'id' => $this->request->getVar('id'),
             'vendor' => $this->request->getVar('vendor'),
-            'alternatif1' => $this->request->getVar('alternatif1'),
-            'alternatif2' => $this->request->getVar('alternatif2'),
-            'alternatif3' => $this->request->getVar('alternatif3'),
-            'alternatif4' => $this->request->getVar('alternatif4'),
-            'alternatif5' => $this->request->getVar('alternatif5'),
+            'VENDOR_A' => $this->request->getVar('VENDOR_A'),
+            'VENDOR_B' => $this->request->getVar('VENDOR_B'),
+            'VENDOR_C' => $this->request->getVar('VENDOR_C'),
+            'VENDOR_D' => $this->request->getVar('VENDOR_D'),
+            'VENDOR_E' => $this->request->getVar('VENDOR_E'),
         ]);
         return $this->response->setJSON(['message' => 'Data berhasil diupdate']);
     }
@@ -147,11 +148,11 @@ class MatriksPerbandinganController extends BaseController
         $this->harga->save([
             'id' => $this->request->getVar('id'),
             'vendor' => $this->request->getVar('vendor'),
-            'alternatif1' => $this->request->getVar('alternatif1'),
-            'alternatif2' => $this->request->getVar('alternatif2'),
-            'alternatif3' => $this->request->getVar('alternatif3'),
-            'alternatif4' => $this->request->getVar('alternatif4'),
-            'alternatif5' => $this->request->getVar('alternatif5'),
+            'VENDOR_A' => $this->request->getVar('VENDOR_A'),
+            'VENDOR_B' => $this->request->getVar('VENDOR_B'),
+            'VENDOR_C' => $this->request->getVar('VENDOR_C'),
+            'VENDOR_D' => $this->request->getVar('VENDOR_D'),
+            'VENDOR_E' => $this->request->getVar('VENDOR_E'),
         ]);
         return $this->response->setJSON(['message' => 'Data berhasil diupdate']);
     }
@@ -161,11 +162,11 @@ class MatriksPerbandinganController extends BaseController
         $this->kredibilitas->save([
             'id' => $this->request->getVar('id'),
             'vendor' => $this->request->getVar('vendor'),
-            'alternatif1' => $this->request->getVar('alternatif1'),
-            'alternatif2' => $this->request->getVar('alternatif2'),
-            'alternatif3' => $this->request->getVar('alternatif3'),
-            'alternatif4' => $this->request->getVar('alternatif4'),
-            'alternatif5' => $this->request->getVar('alternatif5'),
+            'VENDOR_A' => $this->request->getVar('VENDOR_A'),
+            'VENDOR_B' => $this->request->getVar('VENDOR_B'),
+            'VENDOR_C' => $this->request->getVar('VENDOR_C'),
+            'VENDOR_D' => $this->request->getVar('VENDOR_D'),
+            'VENDOR_E' => $this->request->getVar('VENDOR_E'),
         ]);
         return $this->response->setJSON(['message' => 'Data berhasil diupdate']);
     }
@@ -175,11 +176,11 @@ class MatriksPerbandinganController extends BaseController
         $this->waktu->save([
             'id' => $this->request->getVar('id'),
             'vendor' => $this->request->getVar('vendor'),
-            'alternatif1' => $this->request->getVar('alternatif1'),
-            'alternatif2' => $this->request->getVar('alternatif2'),
-            'alternatif3' => $this->request->getVar('alternatif3'),
-            'alternatif4' => $this->request->getVar('alternatif4'),
-            'alternatif5' => $this->request->getVar('alternatif5'),
+            'VENDOR_A' => $this->request->getVar('VENDOR_A'),
+            'VENDOR_B' => $this->request->getVar('VENDOR_B'),
+            'VENDOR_C' => $this->request->getVar('VENDOR_C'),
+            'VENDOR_D' => $this->request->getVar('VENDOR_D'),
+            'VENDOR_E' => $this->request->getVar('VENDOR_E'),
         ]);
         return $this->response->setJSON(['message' => 'Data berhasil diupdate']);
     }
@@ -189,11 +190,11 @@ class MatriksPerbandinganController extends BaseController
         $this->responsif->save([
             'id' => $this->request->getVar('id'),
             'vendor' => $this->request->getVar('vendor'),
-            'alternatif1' => $this->request->getVar('alternatif1'),
-            'alternatif2' => $this->request->getVar('alternatif2'),
-            'alternatif3' => $this->request->getVar('alternatif3'),
-            'alternatif4' => $this->request->getVar('alternatif4'),
-            'alternatif5' => $this->request->getVar('alternatif5'),
+            'VENDOR_A' => $this->request->getVar('VENDOR_A'),
+            'VENDOR_B' => $this->request->getVar('VENDOR_B'),
+            'VENDOR_C' => $this->request->getVar('VENDOR_C'),
+            'VENDOR_D' => $this->request->getVar('VENDOR_D'),
+            'VENDOR_E' => $this->request->getVar('VENDOR_E'),
         ]);
         return $this->response->setJSON(['message' => 'Data berhasil diupdate']);
     }

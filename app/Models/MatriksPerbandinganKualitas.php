@@ -12,7 +12,7 @@ class MatriksPerbandinganKualitas extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['vendor', 'alternatif1', 'alternatif2', 'alternatif3','alternatif4','alternatif5'];
+    protected $allowedFields    = ['vendor', 'VENDOR_A', 'VENDOR_B', 'VENDOR_C','VENDOR_D','VENDOR_E'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;

@@ -50,11 +50,11 @@
                 <tr>
                     <th>ID</th>
                     <th>Vendor</th>
-                    <th>Alternatif 1</th>
-                    <th>Alternatif 2</th>
-                    <th>Alternatif 3</th>
-                    <th>Alternatif 4</th>
-                    <th>Alternatif 5</th>
+                    <th>VENDOR A</th>
+                    <th>VENDOR B</th>
+                    <th>VENDOR C</th>
+                    <th>VENDOR D</th>
+                    <th>VENDOR E</th>
                     <th>Priority Vector</th>
                     <th>Bobot</th>
                     <th>Eigen Value</th>
@@ -71,11 +71,11 @@
                     <tr>
                         <td><?= $kl['id']; ?></td>
                         <td><?= $kl['vendor']; ?></td>
-                        <td><?= $kl['alternatif1']; ?></td>
-                        <td><?= $kl['alternatif2']; ?></td>
-                        <td><?= $kl['alternatif3']; ?></td>
-                        <td><?= $kl['alternatif4']; ?></td>
-                        <td><?= $kl['alternatif5']; ?></td>
+                        <td><?= $kl['VENDOR_A']; ?></td>
+                        <td><?= $kl['VENDOR_B']; ?></td>
+                        <td><?= $kl['VENDOR_C']; ?></td>
+                        <td><?= $kl['VENDOR_D']; ?></td>
+                        <td><?= $kl['VENDOR_E']; ?></td>
                         <td><?= $kl['priority_vector']; ?></td>
                         <td><?= $kl['bobot']; ?></td>
                         <td><?= $kl['eigen_value']; ?></td>
@@ -93,11 +93,11 @@
             <tr>
                 <th>ID</th>
                 <th>Vendor</th>
-                <th>Alternatif 1</th>
-                <th>Alternatif 2</th>
-                <th>Alternatif 3</th>
-                <th>Alternatif 4</th>
-                <th>Alternatif 5</th>
+                <th>VENDOR A</th>
+                <th>VENDOR B</th>
+                <th>VENDOR C</th>
+                <th>VENDOR D</th>
+                <th>VENDOR E</th>
                 <th>Priority Vector</th>
                 <th>Bobot</th>
                 <th>Eigen Value</th>
@@ -113,11 +113,11 @@
                     <tr>
                         <td><?= $h['id']; ?></td>
                         <td><?= $h['vendor']; ?></td>
-                        <td><?= $h['alternatif1']; ?></td>
-                        <td><?= $h['alternatif2']; ?></td>
-                        <td><?= $h['alternatif3']; ?></td>
-                        <td><?= $h['alternatif4']; ?></td>
-                        <td><?= $h['alternatif5']; ?></td>
+                        <td><?= $h['VENDOR_A']; ?></td>
+                        <td><?= $h['VENDOR_B']; ?></td>
+                        <td><?= $h['VENDOR_C']; ?></td>
+                        <td><?= $h['VENDOR_D']; ?></td>
+                        <td><?= $h['VENDOR_E']; ?></td>
                         <td><?= $h['priority_vector']; ?></td>
                         <td><?= $h['bobot']; ?></td>
                         <td><?= $h['eigen_value']; ?></td>
@@ -135,11 +135,11 @@
             <tr>
                 <th>ID</th>
                 <th>Vendor</th>
-                <th>Alternatif 1</th>
-                <th>Alternatif 2</th>
-                <th>Alternatif 3</th>
-                <th>Alternatif 4</th>
-                <th>Alternatif 5</th>
+                <th>VENDOR A</th>
+                <th>VENDOR B</th>
+                <th>VENDOR C</th>
+                <th>VENDOR D</th>
+                <th>VENDOR E</th>
                 <th>Priority Vector</th>
                 <th>Bobot</th>
                 <th>Eigen Value</th>
@@ -155,11 +155,11 @@
                     <tr>
                         <td><?= $kr['id']; ?></td>
                         <td><?= $kr['vendor']; ?></td>
-                        <td><?= $kr['alternatif1']; ?></td>
-                        <td><?= $kr['alternatif2']; ?></td>
-                        <td><?= $kr['alternatif3']; ?></td>
-                        <td><?= $kr['alternatif4']; ?></td>
-                        <td><?= $kr['alternatif5']; ?></td>
+                        <td><?= $kr['VENDOR_A']; ?></td>
+                        <td><?= $kr['VENDOR_B']; ?></td>
+                        <td><?= $kr['VENDOR_C']; ?></td>
+                        <td><?= $kr['VENDOR_D']; ?></td>
+                        <td><?= $kr['VENDOR_E']; ?></td>
                         <td><?= $kr['priority_vector']; ?></td>
                         <td><?= $kr['bobot']; ?></td>
                         <td><?= $kr['eigen_value']; ?></td>
@@ -177,11 +177,11 @@
             <tr>
                 <th>ID</th>
                 <th>Vendor</th>
-                <th>Alternatif 1</th>
-                <th>Alternatif 2</th>
-                <th>Alternatif 3</th>
-                <th>Alternatif 4</th>
-                <th>Alternatif 5</th>
+                <th>VENDOR A</th>
+                <th>VENDOR B</th>
+                <th>VENDOR C</th>
+                <th>VENDOR D</th>
+                <th>VENDOR E</th>
                 <th>Priority Vector</th>
                 <th>Bobot</th>
                 <th>Eigen Value</th>
@@ -197,11 +197,11 @@
                     <tr>
                         <td><?= $r['id']; ?></td>
                         <td><?= $r['vendor']; ?></td>
-                        <td><?= $r['alternatif1']; ?></td>
-                        <td><?= $r['alternatif2']; ?></td>
-                        <td><?= $r['alternatif3']; ?></td>
-                        <td><?= $r['alternatif4']; ?></td>
-                        <td><?= $r['alternatif5']; ?></td>
+                        <td><?= $r['VENDOR_A']; ?></td>
+                        <td><?= $r['VENDOR_B']; ?></td>
+                        <td><?= $r['VENDOR_C']; ?></td>
+                        <td><?= $r['VENDOR_D']; ?></td>
+                        <td><?= $r['VENDOR_E']; ?></td>
                         <td><?= $r['priority_vector']; ?></td>
                         <td><?= $r['bobot']; ?></td>
                         <td><?= $r['eigen_value']; ?></td>
@@ -219,11 +219,11 @@
             <tr>
                 <th>ID</th>
                 <th>Vendor</th>
-                <th>Alternatif 1</th>
-                <th>Alternatif 2</th>
-                <th>Alternatif 3</th>
-                <th>Alternatif 4</th>
-                <th>Alternatif 5</th>
+                <th>VENDOR A</th>
+                <th>VENDOR B</th>
+                <th>VENDOR C</th>
+                <th>VENDOR D</th>
+                <th>VENDOR E</th>
                 <th>Priority Vector</th>
                 <th>Bobot</th>
                 <th>Eigen Value</th>
@@ -239,11 +239,11 @@
                     <tr>
                         <td><?= $w['id']; ?></td>
                         <td><?= $w['vendor']; ?></td>
-                        <td><?= $w['alternatif1']; ?></td>
-                        <td><?= $w['alternatif2']; ?></td>
-                        <td><?= $w['alternatif3']; ?></td>
-                        <td><?= $w['alternatif4']; ?></td>
-                        <td><?= $w['alternatif5']; ?></td>
+                        <td><?= $w['VENDOR_A']; ?></td>
+                        <td><?= $w['VENDOR_B']; ?></td>
+                        <td><?= $w['VENDOR_C']; ?></td>
+                        <td><?= $w['VENDOR_D']; ?></td>
+                        <td><?= $w['VENDOR_E']; ?></td>
                         <td><?= $w['priority_vector']; ?></td>
                         <td><?= $w['bobot']; ?></td>
                         <td><?= $w['eigen_value']; ?></td>

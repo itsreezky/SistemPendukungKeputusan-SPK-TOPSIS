@@ -11,6 +11,7 @@
     <thead class="users-table-info">
       <tr>
         <th>ID</th>
+        <th>Kriteria</th>
         <th>Harga</th>
         <th>Kualitas</th>
         <th>Waktu</th>
@@ -23,6 +24,7 @@
       <?php foreach($kriteria as $k): ?>
       <tr>
         <td><?= $k['id']; ?></td>
+        <td><?= $k['nama_kriteria']; ?></td>
         <td><?= $k['harga']; ?></td>
         <td><?= $k['kualitas']; ?></td>
         <td><?= $k['waktu']; ?></td>
@@ -49,11 +51,11 @@
         <tr class="users-table-info">
           <th>ID</th>
           <th>Vendor</th>
-          <th>Alternatif 1</th>
-          <th>Alternatif 2</th>
-          <th>Alternatif 3</th>
-          <th>Alternatif 4</th>
-          <th>Alternatif 5</th>
+          <th>VENDOR A</th>
+          <th>VENDOR B</th>
+          <th>VENDOR C</th>
+          <th>VENDOR D</th>
+          <th>VENDOR E</th>
           <th>Aksi</th>
         </tr>
     </thead>
@@ -62,11 +64,11 @@
       <tr>
         <td><?= $kt['id']; ?></td>
         <td><?= $kt['vendor']; ?></td>
-        <td><?= $kt['alternatif1']; ?></td>
-        <td><?= $kt['alternatif2']; ?></td>
-        <td><?= $kt['alternatif3']; ?></td>
-        <td><?= $kt['alternatif4']; ?></td>
-        <td><?= $kt['alternatif5']; ?></td>
+        <td><?= $kt['VENDOR_A']; ?></td>
+        <td><?= $kt['VENDOR_B']; ?></td>
+        <td><?= $kt['VENDOR_C']; ?></td>
+        <td><?= $kt['VENDOR_D']; ?></td>
+        <td><?= $kt['VENDOR_E']; ?></td>
         <td>
           <button class="btn btn-warning btnEditKualitas" data-id="<?= $kt['id']; ?>">Edit</button>
           <button class="btn btn-danger btnDeleteKualitas" data-id="<?= $kt['id']; ?>">Hapus</button>
@@ -88,11 +90,11 @@
       <tr class="users-table-info">
         <th>ID</th>
         <th>Vendor</th>
-        <th>Alternatif 1</th>
-        <th>Alternatif 2</th>
-        <th>Alternatif 3</th>
-        <th>Alternatif 4</th>
-        <th>Alternatif 5</th>
+        <th>VENDOR A</th>
+        <th>VENDOR B</th>
+        <th>VENDOR C</th>
+        <th>VENDOR D</th>
+        <th>VENDOR E</th>
         <th>Aksi</th>
       </tr>
     </thead>
@@ -101,11 +103,11 @@
       <tr>
         <td><?= $kr['id']; ?></td>
         <td><?= $kr['vendor']; ?></td>
-        <td><?= $kr['alternatif1']; ?></td>
-        <td><?= $kr['alternatif2']; ?></td>
-        <td><?= $kr['alternatif3']; ?></td>
-        <td><?= $kr['alternatif4']; ?></td>
-        <td><?= $kr['alternatif5']; ?></td>
+        <td><?= $kr['VENDOR_A']; ?></td>
+        <td><?= $kr['VENDOR_B']; ?></td>
+        <td><?= $kr['VENDOR_C']; ?></td>
+        <td><?= $kr['VENDOR_D']; ?></td>
+        <td><?= $kr['VENDOR_E']; ?></td>
         <td>
           <button class="btn btn-warning btnEditHarga" data-id="<?= $kr['id']; ?>">Edit</button>
           <button class="btn btn-danger btnDeleteHarga" data-id="<?= $kr['id']; ?>">Hapus</button>
@@ -127,11 +129,11 @@
         <tr class="users-table-info">
           <th>ID</th>
           <th>Vendor</th>
-          <th>Alternatif 1</th>
-          <th>Alternatif 2</th>
-          <th>Alternatif 3</th>
-          <th>Alternatif 4</th>
-          <th>Alternatif 5</th>
+          <th>VENDOR A</th>
+          <th>VENDOR B</th>
+          <th>VENDOR C</th>
+          <th>VENDOR D</th>
+          <th>VENDOR E</th>
           <th>Aksi</th>
         </tr>
       </thead>
@@ -140,11 +142,11 @@
         <tr>
           <td><?= $rs['id']; ?></td>
           <td><?= $rs['vendor']; ?></td>
-          <td><?= $rs['alternatif1']; ?></td>
-          <td><?= $rs['alternatif2']; ?></td>
-          <td><?= $rs['alternatif3']; ?></td>
-          <td><?= $rs['alternatif4']; ?></td>
-          <td><?= $rs['alternatif5']; ?></td>
+          <td><?= $rs['VENDOR_A']; ?></td>
+          <td><?= $rs['VENDOR_B']; ?></td>
+          <td><?= $rs['VENDOR_C']; ?></td>
+          <td><?= $rs['VENDOR_D']; ?></td>
+          <td><?= $rs['VENDOR_E']; ?></td>
           <td>
             <button class="btn btn-warning btnEditResponsif" data-id="<?= $rs['id']; ?>">Edit</button>
             <button class="btn btn-danger btnDeleteResponsif" data-id="<?= $rs['id']; ?>">Hapus</button>
@@ -168,11 +170,11 @@
       <tr class="users-table-info">
         <th>ID</th>
         <th>Vendor</th>
-        <th>Alternatif 1</th>
-        <th>Alternatif 2</th>
-        <th>Alternatif 3</th>
-        <th>Alternatif 4</th>
-        <th>Alternatif 5</th>
+        <th>VENDOR A</th>
+        <th>VENDOR B</th>
+        <th>VENDOR C</th>
+        <th>VENDOR D</th>
+        <th>VENDOR E</th>
         <th>Aksi</th>
       </tr>
     </thead>
@@ -181,11 +183,11 @@
       <tr>
         <td><?= $k['id']; ?></td>
         <td><?= $k['vendor']; ?></td>
-        <td><?= $k['alternatif1']; ?></td>
-        <td><?= $k['alternatif2']; ?></td>
-        <td><?= $k['alternatif3']; ?></td>
-        <td><?= $k['alternatif4']; ?></td>
-        <td><?= $k['alternatif5']; ?></td>
+        <td><?= $k['VENDOR_A']; ?></td>
+        <td><?= $k['VENDOR_B']; ?></td>
+        <td><?= $k['VENDOR_C']; ?></td>
+        <td><?= $k['VENDOR_D']; ?></td>
+        <td><?= $k['VENDOR_E']; ?></td>
         <td>
           <button class="btn btn-warning btnEditKredibilitas" data-id="<?= $k['id']; ?>">Edit</button>
           <button class="btn btn-danger btnDeleteKredibilitas" data-id="<?= $k['id']; ?>">Hapus</button>
@@ -207,11 +209,11 @@
       <tr class="users-table-info">
         <th>ID</th>
         <th>Vendor</th>
-        <th>Alternatif 1</th>
-        <th>Alternatif 2</th>
-        <th>Alternatif 3</th>
-        <th>Alternatif 4</th>
-        <th>Alternatif 5</th>
+        <th>VENDOR A</th>
+        <th>VENDOR B</th>
+        <th>VENDOR C</th>
+        <th>VENDOR D</th>
+        <th>VENDOR E</th>
         <th>Aksi</th>
       </tr>
     </thead>
@@ -220,11 +222,11 @@
       <tr>
         <td><?= $wk['id']; ?></td>
         <td><?= $wk['vendor']; ?></td>
-        <td><?= $wk['alternatif1']; ?></td>
-        <td><?= $wk['alternatif2']; ?></td>
-        <td><?= $wk['alternatif3']; ?></td>
-        <td><?= $wk['alternatif4']; ?></td>
-        <td><?= $wk['alternatif5']; ?></td>
+        <td><?= $wk['VENDOR_A']; ?></td>
+        <td><?= $wk['VENDOR_B']; ?></td>
+        <td><?= $wk['VENDOR_C']; ?></td>
+        <td><?= $wk['VENDOR_D']; ?></td>
+        <td><?= $wk['VENDOR_E']; ?></td>
         <td>
           <button class="btn btn-warning btnEditWaktu" data-id="<?= $wk['id']; ?>">Edit</button>
           <button class="btn btn-danger btnDeleteWaktu" data-id="<?= $wk['id']; ?>">Hapus</button>
@@ -248,6 +250,9 @@
       <form id="formKriteria">
         <div class="modal-body">
           <input type="hidden" id="id" name="id">
+          <div class="mb-3">
+            <label for="nama_kriteria" class="form-label">Nama Kriteria</label>
+            <input type="text" class="form-control" id="nama_kriteria" name="nama_kriteria" required>
           <div class="mb-3">
             <label for="harga" class="form-label">Harga</label>
             <input type="text" class="form-control" id="harga" name="harga" required>
@@ -294,24 +299,24 @@
             <input type="text" class="form-control" id="vendor" name="vendor" required>
           </div>
           <div class="mb-3">
-            <label for="alternatif1" class="form-label">Alternatif 1</label>
-            <input type="text" class="form-control" id="alternatif1" name="alternatif1" required>
+            <label for="VENDOR_A" class="form-label">VENDOR A</label>
+            <input type="text" class="form-control" id="VENDOR_A" name="VENDOR_A" required>
           </div>
           <div class="mb-3">
-            <label for="alternatif2" class="form-label">Alternatif 2</label>
-            <input type="text" class="form-control" id="alternatif2" name="alternatif2" required>
+            <label for="VENDOR_B" class="form-label">VENDOR B</label>
+            <input type="text" class="form-control" id="VENDOR_B" name="VENDOR_B" required>
           </div>
           <div class="mb-3">
-            <label for="alternatif3" class="form-label">Alternatif 3</label>
-            <input type="text" class="form-control" id="alternatif3" name="alternatif3" required>
+            <label for="VENDOR_C" class="form-label">VENDOR C</label>
+            <input type="text" class="form-control" id="VENDOR_C" name="VENDOR_C" required>
           </div>
           <div class="mb-3">
-            <label for="alternatif4" class="form-label">Alternatif 4</label>
-            <input type="text" class="form-control" id="alternatif4" name="alternatif4" required>
+            <label for="VENDOR_D" class="form-label">VENDOR D</label>
+            <input type="text" class="form-control" id="VENDOR_D" name="VENDOR_D" required>
           </div>
           <div class="mb-3">
-            <label for="alternatif5" class="form-label">Alternatif 5</label>
-            <input type="text" class="form-control" id="alternatif5" name="alternatif5" required>
+            <label for="VENDOR_E" class="form-label">VENDOR E</label>
+            <input type="text" class="form-control" id="VENDOR_E" name="VENDOR_E" required>
           </div>
         </div>
         <div class="modal-footer">
@@ -339,24 +344,24 @@
             <input type="text" class="form-control" id="vendor" name="vendor" required>
           </div>
           <div class="mb-3">
-            <label for="alternatif1" class="form-label">Alternatif 1</label>
-            <input type="text" class="form-control" id="alternatif1" name="alternatif1" required>
+            <label for="VENDOR_A" class="form-label">VENDOR A</label>
+            <input type="text" class="form-control" id="VENDOR_A" name="VENDOR_A" required>
           </div>
           <div class="mb-3">
-            <label for="alternatif2" class="form-label">Alternatif 2</label>
-            <input type="text" class="form-control" id="alternatif2" name="alternatif2" required>
+            <label for="VENDOR_B" class="form-label">VENDOR B</label>
+            <input type="text" class="form-control" id="VENDOR_B" name="VENDOR_B" required>
           </div>
           <div class="mb-3">
-            <label for="alternatif3" class="form-label">Alternatif 3</label>
-            <input type="text" class="form-control" id="alternatif3" name="alternatif3" required>
+            <label for="VENDOR_C" class="form-label">VENDOR C</label>
+            <input type="text" class="form-control" id="VENDOR_C" name="VENDOR_C" required>
           </div>
           <div class="mb-3">
-            <label for="alternatif4" class="form-label">Alternatif 4</label>
-            <input type="text" class="form-control" id="alternatif4" name="alternatif4" required>
+            <label for="VENDOR_D" class="form-label">VENDOR D</label>
+            <input type="text" class="form-control" id="VENDOR_D" name="VENDOR_D" required>
           </div>
           <div class="mb-3">
-            <label for="alternatif5" class="form-label">Alternatif 5</label>
-            <input type="text" class="form-control" id="alternatif5" name="alternatif5" required>
+            <label for="VENDOR_E" class="form-label">VENDOR E</label>
+            <input type="text" class="form-control" id="VENDOR_E" name="VENDOR_E" required>
           </div>
         </div>
         <div class="modal-footer">
@@ -384,27 +389,27 @@
             <input type="text" class="form-control" id="vendor" name="vendor" required>
           </div>
           <div class="mb-3">
-            <label for="alternatif1" class="form-label">Alternatif 1</label>
-            <input type="text" class="form-control" id="alternatif1" name="alternatif1" required>
+            <label for="VENDOR_A" class="form-label">VENDOR A</label>
+            <input type="text" class="form-control" id="VENDOR_A" name="VENDOR_A" required>
           </div>
           <div class="mb-3">
-            <label for="alternatif2" class="form-label
-            ">Alternatif 2</label>
-            <input type="text" class="form-control" id="alternatif2" name="alternatif2" required>
+            <label for="VENDOR_B" class="form-label
+            ">VENDOR B</label>
+            <input type="text" class="form-control" id="VENDOR_B" name="VENDOR_B" required>
           </div>
           <div class="mb-3">
-            <label for="alternatif3" class="form-label
-            ">Alternatif 3</label>
-            <input type="text" class="form-control" id="alternatif3" name="alternatif3" required>
+            <label for="VENDOR_C" class="form-label
+            ">VENDOR C</label>
+            <input type="text" class="form-control" id="VENDOR_C" name="VENDOR_C" required>
           </div>
           <div class="mb-3">
-            <label for="alternatif4" class="form-label">Alternatif 4</label>
-            <input type="text" class="form-control" id="alternatif4" name="alternatif4" required>
+            <label for="VENDOR_D" class="form-label">VENDOR D</label>
+            <input type="text" class="form-control" id="VENDOR_D" name="VENDOR_D" required>
           </div>
           <div class="mb-3">
-            <label for="alternatif5" class="form-label
-            ">Alternatif 5</label>
-            <input type="text" class="form-control" id="alternatif5" name="alternatif5" required>
+            <label for="VENDOR_E" class="form-label
+            ">VENDOR E</label>
+            <input type="text" class="form-control" id="VENDOR_E" name="VENDOR_E" required>
           </div>
         </div>
         <div class="modal-footer">
@@ -433,24 +438,24 @@
             <input type="text" class="form-control" id="vendor" name="vendor" required>
           </div>
           <div class="mb-3">
-            <label for="alternatif1" class="form-label">Alternatif 1</label>
-            <input type="text" class="form-control" id="alternatif1" name="alternatif1" required>
+            <label for="VENDOR_A" class="form-label">VENDOR A</label>
+            <input type="text" class="form-control" id="VENDOR_A" name="VENDOR_A" required>
           </div>
           <div class="mb-3">
-            <label for="alternatif2" class="form-label">Alternatif 2</label>
-            <input type="text" class="form-control" id="alternatif2" name="alternatif2" required>
+            <label for="VENDOR_B" class="form-label">VENDOR B</label>
+            <input type="text" class="form-control" id="VENDOR_B" name="VENDOR_B" required>
           </div>
           <div class="mb-3">
-            <label for="alternatif3" class="form-label">Alternatif 3</label>
-            <input type="text" class="form-control" id="alternatif3" name="alternatif3" required>
+            <label for="VENDOR_C" class="form-label">VENDOR C</label>
+            <input type="text" class="form-control" id="VENDOR_C" name="VENDOR_C" required>
           </div>
           <div class="mb-3">
-            <label for="alternatif4" class="form-label">Alternatif 4</label>
-            <input type="text" class="form-control" id="alternatif4" name="alternatif4" required>
+            <label for="VENDOR_D" class="form-label">VENDOR D</label>
+            <input type="text" class="form-control" id="VENDOR_D" name="VENDOR_D" required>
           </div>
           <div class="mb-3">
-            <label for="alternatif5" class="form-label">Alternatif 5</label>
-            <input type="text" class="form-control" id="alternatif5" name="alternatif5" required>
+            <label for="VENDOR_E" class="form-label">VENDOR E</label>
+            <input type="text" class="form-control" id="VENDOR_E" name="VENDOR_E" required>
           </div>
         </div>
         <div class="modal-footer">
@@ -478,24 +483,24 @@
             <input type="text" class="form-control" id="vendor" name="vendor" required>
           </div>
           <div class="mb-3">
-            <label for="alternatif1" class="form-label">Alternatif 1</label>
-            <input type="text" class="form-control" id="alternatif1" name="alternatif1" required>
+            <label for="VENDOR_A" class="form-label">VENDOR A</label>
+            <input type="text" class="form-control" id="VENDOR_A" name="VENDOR_A" required>
           </div>
           <div class="mb-3">
-            <label for="alternatif2" class="form-label">Alternatif 2</label>
-            <input type="text" class="form-control" id="alternatif2" name="alternatif2" required>
+            <label for="VENDOR_B" class="form-label">VENDOR B</label>
+            <input type="text" class="form-control" id="VENDOR_B" name="VENDOR_B" required>
           </div>
           <div class="mb-3">
-            <label for="alternatif3" class="form-label">Alternatif 3</label>
-            <input type="text" class="form-control" id="alternatif3" name="alternatif3" required>
+            <label for="VENDOR_C" class="form-label">VENDOR C</label>
+            <input type="text" class="form-control" id="VENDOR_C" name="VENDOR_C" required>
           </div>
           <div class="mb-3">
-            <label for="alternatif4" class="form-label">Alternatif 4</label>
-            <input type="text" class="form-control" id="alternatif4" name="alternatif4" required>
+            <label for="VENDOR_D" class="form-label">VENDOR D</label>
+            <input type="text" class="form-control" id="VENDOR_D" name="VENDOR_D" required>
           </div>
           <div class="mb-3">
-            <label for="alternatif5" class="form-label">Alternatif 5</label>
-            <input type="text" class="form-control" id="alternatif5" name="alternatif5" required>
+            <label for="VENDOR_E" class="form-label">VENDOR E</label>
+            <input type="text" class="form-control" id="VENDOR_E" name="VENDOR_E" required>
           </div>
         </div>
         <div class="modal-footer">
@@ -545,6 +550,7 @@ $(document).on('click', '.btnEditKriteria', function() {
     let id = $(this).data('id');
     $.get('<?= base_url('function/matriks/editKriteria'); ?>/' + id, function(data) {
         $('#id').val(data.kriteria.id);
+        $('#nama_kriteria').val(data.kriteria.nama_kriteria);
         $('#harga').val(data.kriteria.harga);
         $('#kualitas').val(data.kriteria.kualitas);
         $('#waktu').val(data.kriteria.waktu);
@@ -639,11 +645,11 @@ $(document).on('click', '.btnEditKualitas', function() {
     $.get('<?= base_url('function/matriks/editKualitas'); ?>/' + id, function(data) {
         $('#id').val(data.kualitas.id);
         $('#vendor').val(data.kualitas.vendor);
-        $('#alternatif1').val(data.kualitas.alternatif1);
-        $('#alternatif2').val(data.kualitas.alternatif2);
-        $('#alternatif3').val(data.kualitas.alternatif3);
-        $('#alternatif4').val(data.kualitas.alternatif4);
-        $('#alternatif5').val(data.kualitas.alternatif5);
+        $('#VENDOR_A').val(data.kualitas.VENDOR_A);
+        $('#VENDOR_B').val(data.kualitas.VENDOR_B);
+        $('#VENDOR_C').val(data.kualitas.VENDOR_C);
+        $('#VENDOR_D').val(data.kualitas.VENDOR_D);
+        $('#VENDOR_E').val(data.kualitas.VENDOR_E);
         $('#modalKualitas').modal('show');
     });
 });
@@ -733,11 +739,11 @@ $(document).on('click', '.btnEditHarga', function() {
     $.get('<?= base_url('function/matriks/editHarga'); ?>/' + id, function(data) {
         $('#id').val(data.harga.id);
         $('#vendor').val(data.harga.vendor);
-        $('#alternatif1').val(data.harga.alternatif1);
-        $('#alternatif2').val(data.harga.alternatif2);
-        $('#alternatif3').val(data.harga.alternatif3);
-        $('#alternatif4').val(data.harga.alternatif4);
-        $('#alternatif5').val(data.harga.alternatif5);
+        $('#VENDOR_A').val(data.harga.VENDOR_A);
+        $('#VENDOR_B').val(data.harga.VENDOR_B);
+        $('#VENDOR_C').val(data.harga.VENDOR_C);
+        $('#VENDOR_D').val(data.harga.VENDOR_D);
+        $('#VENDOR_E').val(data.harga.VENDOR_E);
         $('#modalHarga').modal('show');
     });
 });
@@ -824,11 +830,11 @@ $(document).on('click', '.btnEditKredibilitas', function() {
     $.get('<?= base_url('function/matriks/editKredibilitas'); ?>/' + id, function(data) {
         $('#id').val(data.kredibilitas.id);
         $('#vendor').val(data.kredibilitas.vendor);
-        $('#alternatif1').val(data.kredibilitas.alternatif1);
-        $('#alternatif2').val(data.kredibilitas.alternatif2);
-        $('#alternatif3').val(data.kredibilitas.alternatif3);
-        $('#alternatif4').val(data.kredibilitas.alternatif4);
-        $('#alternatif5').val(data.kredibilitas.alternatif5);
+        $('#VENDOR_A').val(data.kredibilitas.VENDOR_A);
+        $('#VENDOR_B').val(data.kredibilitas.VENDOR_B);
+        $('#VENDOR_C').val(data.kredibilitas.VENDOR_C);
+        $('#VENDOR_D').val(data.kredibilitas.VENDOR_D);
+        $('#VENDOR_E').val(data.kredibilitas.VENDOR_E);
         $('#modalKredibilitas').modal('show');
     });
     loadKredibilitas();
@@ -918,11 +924,11 @@ $(document).on('click', '.btnEditWaktu', function() {
     $.get('<?= base_url('function/matriks/editWaktu'); ?>/' + id, function(data) {
         $('#id').val(data.waktu.id);
         $('#vendor').val(data.waktu.vendor);
-        $('#alternatif1').val(data.waktu.alternatif1);
-        $('#alternatif2').val(data.waktu.alternatif2);
-        $('#alternatif3').val(data.waktu.alternatif3);
-        $('#alternatif4').val(data.waktu.alternatif4);
-        $('#alternatif5').val(data.waktu.alternatif5);
+        $('#VENDOR_A').val(data.waktu.VENDOR_A);
+        $('#VENDOR_B').val(data.waktu.VENDOR_B);
+        $('#VENDOR_C').val(data.waktu.VENDOR_C);
+        $('#VENDOR_D').val(data.waktu.VENDOR_D);
+        $('#VENDOR_E').val(data.waktu.VENDOR_E);
         $('#modalWaktu').modal('show');
     });
     loadWaktu();
@@ -1014,11 +1020,11 @@ $(document).on('click', '.btnEditResponsif', function() {
     $.get('<?= base_url('function/matriks/editResponsif'); ?>/' + id, function(data) {
       $('#id').val(data.responsif.id);
         $('#vendor').val(data.responsif.vendor);
-        $('#alternatif1').val(data.responsif.alternatif1);
-        $('#alternatif2').val(data.responsif.alternatif2);
-        $('#alternatif3').val(data.responsif.alternatif3);
-        $('#alternatif4').val(data.responsif.alternatif4);
-        $('#alternatif5').val(data.responsif.alternatif5);
+        $('#VENDOR_A').val(data.responsif.VENDOR_A);
+        $('#VENDOR_B').val(data.responsif.VENDOR_B);
+        $('#VENDOR_C').val(data.responsif.VENDOR_C);
+        $('#VENDOR_D').val(data.responsif.VENDOR_D);
+        $('#VENDOR_E').val(data.responsif.VENDOR_E);
         $('#modalResponsif').modal('show');
     });
 });

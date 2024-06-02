@@ -12,7 +12,7 @@ class NormalisasiHarga extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['vendor', 'alternatif1', 'alternatif2', 'alternatif3','alternatif4','alternatif5','priority_vector','bobot','eigen_value'];
+    protected $allowedFields    = ['vendor', 'VENDOR_A', 'VENDOR_B', 'VENDOR_C','VENDOR_D','VENDOR_E','priority_vector','bobot','eigen_value'];
 
     public function normalisasiHarga()
     {
@@ -28,19 +28,19 @@ class NormalisasiHarga extends Model
 
         // Calculate normalization
         $total_columns = [
-            'alternatif1' => 0,
-            'alternatif2' => 0,
-            'alternatif3' => 0,
-            'alternatif4' => 0,
-            'alternatif5' => 0,
+            'VENDOR_A' => 0,
+            'VENDOR_B' => 0,
+            'VENDOR_C' => 0,
+            'VENDOR_D' => 0,
+            'VENDOR_E' => 0,
         ];
 
         foreach ($matriks_harga as $harga) {
-            $total_columns['alternatif1'] += $harga['alternatif1'];
-            $total_columns['alternatif2'] += $harga['alternatif2'];
-            $total_columns['alternatif3'] += $harga['alternatif3'];
-            $total_columns['alternatif4'] += $harga['alternatif4'];
-            $total_columns['alternatif5'] += $harga['alternatif5'];
+            $total_columns['VENDOR_A'] += $harga['VENDOR_A'];
+            $total_columns['VENDOR_B'] += $harga['VENDOR_B'];
+            $total_columns['VENDOR_C'] += $harga['VENDOR_C'];
+            $total_columns['VENDOR_D'] += $harga['VENDOR_D'];
+            $total_columns['VENDOR_E'] += $harga['VENDOR_E'];
         }
         
 
@@ -48,14 +48,14 @@ class NormalisasiHarga extends Model
         $this->truncate();
 
         foreach ($matriks_harga as $harga) {
-            $alternatif1_norm = $harga['alternatif1'] / $total_columns['alternatif1'];
-            $alternatif2_norm = $harga['alternatif2'] / $total_columns['alternatif2'];
-            $alternatif3_norm = $harga['alternatif3'] / $total_columns['alternatif3'];
-            $alternatif4_norm = $harga['alternatif4'] / $total_columns['alternatif4'];
-            $alternatif5_norm = $harga['alternatif5'] / $total_columns['alternatif5'];
+            $VENDOR_A_norm = $harga['VENDOR_A'] / $total_columns['VENDOR_A'];
+            $VENDOR_B_norm = $harga['VENDOR_B'] / $total_columns['VENDOR_B'];
+            $VENDOR_C_norm = $harga['VENDOR_C'] / $total_columns['VENDOR_C'];
+            $VENDOR_D_norm = $harga['VENDOR_D'] / $total_columns['VENDOR_D'];
+            $VENDOR_E_norm = $harga['VENDOR_E'] / $total_columns['VENDOR_E'];
 
             // Calculate priority vector
-            $priority_vector = ($alternatif1_norm + $alternatif2_norm + $alternatif3_norm + $alternatif4_norm + $alternatif5_norm) / 5;
+            $priority_vector = ($VENDOR_A_norm + $VENDOR_B_norm + $VENDOR_C_norm + $VENDOR_D_norm + $VENDOR_E_norm) / 5;
 
             // Calculate bobot and eigen_value as per your requirements
             $bobot = $priority_vector; // Update this as per your calculation logic
@@ -64,11 +64,11 @@ class NormalisasiHarga extends Model
             // Save normalized data
             $data = [
                 'vendor' => $harga['vendor'],
-                'alternatif1' => $alternatif1_norm,
-                'alternatif2' => $alternatif2_norm,
-                'alternatif3' => $alternatif3_norm,
-                'alternatif4' => $alternatif4_norm,
-                'alternatif5' => $alternatif5_norm,
+                'VENDOR_A' => $VENDOR_A_norm,
+                'VENDOR_B' => $VENDOR_B_norm,
+                'VENDOR_C' => $VENDOR_C_norm,
+                'VENDOR_D' => $VENDOR_D_norm,
+                'VENDOR_E' => $VENDOR_E_norm,
                 'priority_vector' => $priority_vector,
                 'bobot' => $bobot,
                 'eigen_value' => $eigen_value,

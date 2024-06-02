@@ -1,15 +1,15 @@
 <h4>Perhitungan Skala Perbandingan Otomatis</h4>
 <div class="users-table table-wrapper mt-5">
-    <center><b>SKALA NILAI KRITERIA</b> <br><br>
-        <button class="btn btn-primary" id="submit-kriteria">Hitung Geomean</button>
-        <button class="btn btn-success" id="save-kriteria" style="display: none;">Simpan</button>
-        <button class="btn btn-danger" id="delete-kriteria" style="display: none;">Hapus</button>
+    <center><b>SKALA NILAI KUALITAS</b> <br><br>
+        <button class="btn btn-primary" id="submit-kualitas">Hitung Geomean</button>
+        <button class="btn btn-success" id="save-kualitas" style="display: none;">Simpan</button>
+        <button class="btn btn-danger" id="delete-kualitas" style="display: none;">Hapus</button>
     </center>
     <table class="posts-table">
         <thead class="users-table-info">
             <tr>
                 <th>No</th>
-                <th>Kriteria</th>
+                <th>Kualitas</th>
                 <th>9</th>
                 <th>8</th>
                 <th>7</th>
@@ -27,26 +27,26 @@
                 <th>7</th>
                 <th>8</th>
                 <th>9</th>
-                <th>Kriteria</th>
+                <th>Kualitas</th>
                 <th>GEOMEAN</th>
             </tr>
         </thead>
         <tbody>
             <?php $rowNumber = 1; ?>
-            <?php foreach ($kriteria as $k1) : ?>
-                <?php foreach ($kriteria as $k2) : ?>
+            <?php foreach ($alternatif as $k1) : ?>
+                <?php foreach ($alternatif as $k2) : ?>
                     <?php if ($k1['id'] < $k2['id']) : ?>
                         <tr>
                             <td><?= $rowNumber++ ?></td>
-                            <td><?= $k1['nama_kriteria'] ?></td>
+                            <td><?= $k1['nama_alternatif'] ?></td>
                             <?php for ($i = 9; $i >= 1; $i--) : ?>
                                 <td><input type="radio" name="scale-<?= $k1['id'] ?>-<?= $k2['id'] ?>" class="scale-checkbox" data-weight="<?= $i ?>"></td>
                             <?php endfor; ?>
                             <?php for ($i = 2; $i <= 9; $i++) : ?>
                                 <td><input type="radio" name="scale-<?= $k1['id'] ?>-<?= $k2['id'] ?>" class="scale-checkbox" data-weight="<?= 1/$i ?>"></td>
                             <?php endfor; ?>
-                            <td><?= $k2['nama_kriteria'] ?></td>
-                            <td class="geomean-kriteria p-5">0</td>
+                            <td><?= $k2['nama_alternatif'] ?></td>
+                            <td class="geomean-kualitas p-5">0</td>
                         </tr>
                     <?php endif; ?>
                 <?php endforeach; ?>
@@ -55,9 +55,8 @@
     </table>
 </div>
 
-
 <script>
-    $(document).ready(function() {
+$(document).ready(function() {
     function handleAjaxError(xhr, status, error) {
         console.error('Error:', xhr, status, error);
         Swal.fire({
@@ -87,13 +86,13 @@
 
     function updateGeomeans(geomeans) {
         $('tbody tr').each(function(index) {
-            $(this).find('.geomean-kriteria').text(geomeans[index].toFixed(2));
+            $(this).find('.geomean-kualitas').text(geomeans[index].toFixed(2));
         });
     }
 
-    $('#submit-kriteria').click(function() {
+    $('#submit-kualitas').click(function() {
         var data = [];
-        var criteriaCount = <?= count($kriteria) ?>;
+        var alternatifCount = <?= count($alternatif) ?>;
 
         $('tbody tr').each(function() {
             var row = [];
@@ -109,27 +108,27 @@
         console.log('Data to send for Geomean calculation:', data);
 
         $.ajax({
-            url: '<?= base_url('function/skala_nilaiKriteria/hitungGeomeanKriteria') ?>',
+            url: '<?= base_url('function/skala_nilaiKualitas/hitungGeomeanKualitas') ?>',
             type: 'POST',
             data: JSON.stringify({ data: data }),
             contentType: 'application/json',
             dataType: 'json',
             success: function(response) {
                 updateGeomeans(response.geomeans);
-                showSuccessMessage('Geomean Kriteria telah dihitung.');
-                $('#save-kriteria').show();
+                showSuccessMessage('Geomean kualitas telah dihitung.');
+                $('#save-kualitas').show();
             },
             error: handleAjaxError
         });
     });
 
-    $('#save-kriteria').click(function() {
+    $('#save-kualitas').click(function() {
         var data = [];
-        var criteriaCount = <?= count($kriteria) ?>;
+        var alternatifCount = <?= count($alternatif) ?>;
 
-        for (var i = 0; i < criteriaCount; i++) {
+        for (var i = 0; i < alternatifCount; i++) {
             var row = [];
-            for (var j = i + 1; j < criteriaCount; j++) {
+            for (var j = i + 1; j < alternatifCount; j++) {
                 var weight = $('input[name="scale-' + (i + 1) + '-' + (j + 1) + '"]:checked').data('weight');
                 row.push(weight);
             }
@@ -141,14 +140,14 @@
         console.log('Data to save:', data);
 
         $.ajax({
-            url: '<?= base_url('function/skala_nilaiKriteria/simpanDataKriteria') ?>',
+            url: '<?= base_url('function/skala_nilaiKualitas/simpanDataKualitas') ?>',
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify({ data: data }),
             success: function(response) {
                 showSuccessMessage(response.message);
-                $('#save-kriteria').hide();
-                $('#delete-kriteria').show();
+                $('#save-kualitas').hide();
+                $('#delete-kualitas').show();
                 disableCheckboxes();
             },
             error: function(xhr, status, error) {
@@ -157,16 +156,16 @@
         });
     });
 
-    $('#delete-kriteria').click(function() {
+    $('#delete-kualitas').click(function() {
         $.ajax({
-            url: '<?= base_url('function/skala_nilaiKriteria/hapusDataKriteria') ?>',
+            url: '<?= base_url('function/skala_nilaiKualitas/hapusDataKualitas') ?>',
             type: 'POST',
             success: function(response) {
-                showSuccessMessage('Data kriteria telah dihapus.');
+                showSuccessMessage('Data kualitas telah dihapus.');
                 enableCheckboxes();
-                $('#save-kriteria').hide();
-                $('#delete-kriteria').hide();
-                $('tbody tr').find('.geomean-kriteria').text('0');
+                $('#save-kualitas').hide();
+                $('#delete-kualitas').hide();
+                $('tbody tr').find('.geomean-kualitas').text('0');
             },
             error: handleAjaxError
         });

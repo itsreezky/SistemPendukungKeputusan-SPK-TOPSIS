@@ -16,7 +16,7 @@ $routes->post('/function/kriteria/update', 'KriteriaController::update');
 $routes->post('/function/kriteria/delete', 'KriteriaController::delete');
 $routes->get('/function/kriteria/(:num)', 'KriteriaController::edit/$1');
 
-// Master Data Kriteria
+// Master Data Alternatif
 $routes->get('/function/alternatif', 'AlternatifController::index');
 $routes->post('/function/alternatif/save', 'AlternatifController::save');
 $routes->post('/function/alternatif/update', 'AlternatifController::update');
@@ -63,8 +63,47 @@ $routes->post('function/normalisasi/kredibilitas', 'NormalisasiController::norma
 $routes->post('function/normalisasi/responsif', 'NormalisasiController::normalisasiResponsif');
 $routes->post('function/normalisasi/waktu', 'NormalisasiController::normalisasiWaktu');
 
-$routes->get('function/skala_nilaiKriteria', 'SkalaPerbandinganController::index');
+// Skala Penilaian Kriteria
+$routes->get('function/skala_nilaiKriteria', 'SkalaPerbandinganController::indexKriteria');
 $routes->post('function/skala_nilaiKriteria/hitungGeomeanKriteria', 'SkalaPerbandinganController::hitungGeomeanKriteria');
 $routes->post('function/skala_nilaiKriteria/simpanDataKriteria', 'SkalaPerbandinganController::simpanDataKriteria');
 $routes->post('function/skala_nilaiKriteria/hapusDataKriteria', 'SkalaPerbandinganController::hapusDataKriteria');
 $routes->get('function/skala_nilaiKriteria/getSavedData', 'SkalaPerbandinganController::getSavedData');
+
+
+// Skala Penilaian Harga
+$routes->get('function/skala_nilaiHarga', 'SkalaPerbandinganController::indexHarga');
+$routes->post('function/skala_nilaiHarga/hitungGeomeanHarga', 'SkalaPerbandinganController::hitungGeomeanHarga');
+$routes->post('function/skala_nilaiHarga/simpanDataHarga', 'SkalaPerbandinganController::simpanDataHarga');
+$routes->post('function/skala_nilaiHarga/hapusDataHarga', 'SkalaPerbandinganController::hapusDataHarga');
+$routes->get('function/skala_nilaiHarga/getSavedData', 'SkalaPerbandinganController::getSavedDataHarga');
+
+
+// Skala Penilaian Kualitas
+$routes->get('function/skala_nilaiKualitas', 'SkalaPerbandinganController::indexKualitas');
+$routes->post('function/skala_nilaiKualitas/hitungGeomeanKualitas', 'SkalaPerbandinganController::hitungGeomeanKualitas');
+$routes->post('function/skala_nilaiKualitas/simpanDataKualitas', 'SkalaPerbandinganController::simpanDataKualitas');
+$routes->post('function/skala_nilaiKualitas/hapusDataKualitas', 'SkalaPerbandinganController::hapusDataKualitas');
+$routes->get('function/skala_nilaiKualitas/getSavedData', 'SkalaPerbandinganController::getSavedDataKualitas');
+
+// Skala Penilaian Waktu
+$routes->get('function/skala_nilaiWaktu', 'SkalaPerbandinganController::indexWaktu');
+$routes->post('function/skala_nilaiWaktu/hitungGeomeanWaktu', 'SkalaPerbandinganController::hitungGeomeanWaktu');
+$routes->post('function/skala_nilaiWaktu/simpanDataWaktu', 'SkalaPerbandinganController::simpanDataWaktu');
+$routes->post('function/skala_nilaiWaktu/hapusDataWaktu', 'SkalaPerbandinganController::hapusDataWaktu');
+$routes->get('function/skala_nilaiWaktu/getSavedData', 'SkalaPerbandinganController::getSavedDataWaktu');
+
+// Skala Penilaian Kredibilitas
+$routes->get('function/skala_nilaiKredibilitas', 'SkalaPerbandinganController::indexKredibilitas');
+$routes->post('function/skala_nilaiKredibilitas/hitungGeomeanKredibilitas', 'SkalaPerbandinganController::hitungGeomeanKredibilitas');
+$routes->post('function/skala_nilaiKredibilitas/simpanDataKredibilitas', 'SkalaPerbandinganController::simpanDataKredibilitas');
+$routes->post('function/skala_nilaiKredibilitas/hapusDataKredibilitas', 'SkalaPerbandinganController::hapusDataKredibilitas');
+$routes->get('function/skala_nilaiKredibilitas/getSavedData', 'SkalaPerbandinganController::getSavedDataKredibilitas');
+
+// Skala Penilaian Responsif
+$routes->get('function/skala_nilaiResponsif', 'SkalaPerbandinganController::indexResponsif');
+$routes->post('function/skala_nilaiResponsif/hitungGeomeanResponsif', 'SkalaPerbandinganController::hitungGeomeanResponsif');
+$routes->post('function/skala_nilaiResponsif/simpanDataResponsif', 'SkalaPerbandinganController::simpanDataResponsif');
+$routes->post('function/skala_nilaiResponsif/hapusDataResponsif', 'SkalaPerbandinganController::hapusDataResponsif');
+$routes->get('function/skala_nilaiResponsif/getSavedData', 'SkalaPerbandinganController::getSavedDataResponsif');
+
